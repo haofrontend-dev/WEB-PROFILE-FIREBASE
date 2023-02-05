@@ -18,34 +18,36 @@
 .slick-prev {
   position: absolute;
   top: 50%;
-  left: 0;
+  left: -15px;
   transform: translateY(-50%);
   z-index: 1;
   background-color: #fff;
   color: #6b9cff;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
+  border-radius: 50%;
 }
 .slick-next {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: -15px;
   transform: translateY(-50%);
   z-index: 1;
   background-color: #fff;
   color: #6b9cff;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
+  border-radius: 50%;
 }
 .slick-prev:before {
   content: "<";
   color: #6b9cff;
 
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .slick-next:before {
   content: ">";
   color: #6b9cff;
-  font-size: 30px;
+  font-size: 20px;
 }
