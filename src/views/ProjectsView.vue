@@ -4,19 +4,23 @@
       <div class="list-btn">
         <ul class="d-flex align-items-cente gap-2">
           <li>
-            <a href="" class="btn btn-outline-primary">Key Visuals</a>
+            <a href="#" class="btn btn-outline-primary">Key Visuals</a>
           </li>
-          <li><a href="" class="btn btn-outline-primary">FMCG</a></li>
-          <li><a href="" class="btn btn-outline-primary">General</a></li>
-          <li><a href="" class="btn btn-outline-primary">Education</a></li>
+          <li><a href="#" class="btn btn-outline-primary">FMCG</a></li>
+          <li><a href="#" class="btn btn-outline-primary">General</a></li>
+          <li><a href="#" class="btn btn-outline-primary">Education</a></li>
         </ul>
         <ul class="d-flex align-items-cente gap-2">
           <li>
-            <a href="" class="btn btn-outline-primary">F&B</a>
+            <router-link to="/projects/f&b" class="btn btn-outline-primary"
+              >F&B</router-link
+            >
           </li>
-          <li><a href="" class="btn btn-outline-primary">Real Estates</a></li>
-          <li><a href="" class="btn btn-outline-primary">Fashion</a></li>
-          <li><a href="" class="btn btn-outline-primary">Motion Graphic</a></li>
+          <li><a href="#" class="btn btn-outline-primary">Real Estates</a></li>
+          <li><a href="#" class="btn btn-outline-primary">Fashion</a></li>
+          <li>
+            <a href="#" class="btn btn-outline-primary">Motion Graphic</a>
+          </li>
         </ul>
       </div>
       <div class="projects mt-5">

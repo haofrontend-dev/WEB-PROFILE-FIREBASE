@@ -1,3 +1,27 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
 .slick-list {
   height: 100%;
 }
@@ -26,6 +50,7 @@
   border: none;
   padding: 8px 16px;
   border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 .slick-next {
   position: absolute;
@@ -38,6 +63,7 @@
   border: none;
   padding: 8px 16px;
   border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 .slick-prev:before {
   content: "<";
