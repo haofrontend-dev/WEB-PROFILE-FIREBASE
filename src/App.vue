@@ -1,17 +1,24 @@
 <template>
-  <div id="app">
-    <header-main />
+  <component :is="layout">
     <router-view class="content" />
-    <footer-main />
-  </div>
+  </component>
 </template>
 <script>
-import HeaderMain from "@/components/HeaderMain.vue";
-import FooterMain from "./components/FooterMain.vue";
+import { PUBLIC_LAYOUT } from "@/constants";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "./config/filsebase";
 export default {
-  components: {
-    HeaderMain,
-    FooterMain,
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || PUBLIC_LAYOUT) + "-layout";
+    },
+  },
+  async mounted() {
+    const querySnapshot = await getDocs(collection(db, "image"));
+    const data = querySnapshot.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    console.log(data);
   },
 };
 </script>

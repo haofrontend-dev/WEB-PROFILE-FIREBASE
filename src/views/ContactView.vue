@@ -24,6 +24,7 @@
               rows="8"
             ></b-form-textarea>
           </div>
+          <b-button variant="info" class="mt-4 btn-send">Send</b-button>
         </form>
       </div>
     </div>
@@ -35,5 +36,8 @@ h1 {
 }
 .input-text {
   border: 1px solid #6b9cff;
+}
+.btn-send {
+  color: #fff;
 }
 </style>
