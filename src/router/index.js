@@ -51,8 +51,20 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/LoginView.vue"),
   },
   {
+    path: "/admin",
+    name: "admin",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    meta: {
+      layout: "admin",
+    },
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/UploadView.vue"),
+  },
+  {
     path: "/upload-image",
-    name: "upload",
+    name: "uploadImage",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

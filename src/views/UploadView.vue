@@ -110,11 +110,11 @@ export default {
         const files = input.files[0];
         console.log(files);
         var metaData = {
-          contentType: "image/png",
+          contentType: "video/mp4",
           valueOption: this.valueOption,
         };
         const storageRef = getStorage();
-        const imageRef = ref(storageRef, `image/${imageName}.png`);
+        const imageRef = ref(storageRef, `image/${imageName}.mp4`);
         uploadBytes(imageRef, files, metaData);
       } catch (error) {
         console.log(error);
