@@ -30,6 +30,9 @@ header {
   padding: 4px 0;
   background-image: linear-gradient(to right, #aee5ff, #6b9cff);
 }
+.fixed-top {
+  z-index: 90;
+}
 .logo {
   height: 100%;
 }

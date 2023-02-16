@@ -33,7 +33,7 @@
           </div>
         </div>
       </div>
-      <div class="section-skill">
+      <div class="section-skill mb-5 py-5">
         <div class="container">
           <div class="section-skill">
             <div class="mt-5 section-gp">

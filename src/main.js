@@ -19,13 +19,13 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 const firebaseConfig = {
-  apiKey: "AIzaSyBxWCpYWPeHHTNAg8DB7mfV0JHh0HrymMs",
-  authDomain: "web-profile-377222.firebaseapp.com",
-  projectId: "web-profile-377222",
-  storageBucket: "web-profile-377222.appspot.com",
-  messagingSenderId: "993731772591",
-  appId: "1:993731772591:web:f21c9f6d3c4c07b944145a",
-  measurementId: "G-35ZD782X3J",
+  apiKey: "AIzaSyAPG5KbnxLr5Jh3kEWb5EzIvjJvcjO_IcY",
+  authDomain: "test-b99d9.firebaseapp.com",
+  projectId: "test-b99d9",
+  storageBucket: "test-b99d9.appspot.com",
+  messagingSenderId: "556640825709",
+  appId: "1:556640825709:web:631c7e6421a539a386ea64",
+  measurementId: "G-RLC1PXH83C",
 };
 // Initialize Firebase
 
