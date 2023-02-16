@@ -33,7 +33,6 @@
                   height="16"
                   class="me-3"
                 >
-                  <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                   <path
                     fill="#fff"
                     d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64

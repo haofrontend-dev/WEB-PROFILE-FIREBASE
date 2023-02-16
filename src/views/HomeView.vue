@@ -1,9 +1,17 @@
 <template>
   <div class="home">
-    <div class="banner">
-      <img src="@/assets/image/banner.png" alt="" />
-    </div>
-    <div class="home" :style="{ backgroundImage: `url(${bgSkill})` }">
+    <slick-slider :options="optionBanner">
+      <div class="banner">
+        <img src="@/assets/image/slider.png" alt="" />
+      </div>
+      <div class="banner">
+        <img src="@/assets/image/slider.png" alt="" />
+      </div>
+      <div class="banner">
+        <img src="@/assets/image/slider.png" alt="" />
+      </div>
+    </slick-slider>
+    <div :style="{ backgroundImage: `url(${bgSkill})` }">
       <div class="bg-white">
         <div class="container pt-5">
           <div class="row">
@@ -35,16 +43,16 @@
               <div class="mt-5">
                 <slick-slider :options="optionsGP">
                   <div>
-                    <img src="@/assets/image/gp-1.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
                   </div>
                   <div>
-                    <img src="@/assets/image/gp-2.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-2.jpg" alt="" width="100%" />
                   </div>
                   <div>
-                    <img src="@/assets/image/gp-3.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
                   </div>
                   <div>
-                    <img src="@/assets/image/gp-3.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
                   </div>
                 </slick-slider>
               </div>
@@ -54,16 +62,16 @@
               <div class="mt-5">
                 <slick-slider :options="optionsGP">
                   <div>
-                    <img src="@/assets/image/ai-1.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
                   </div>
                   <div>
-                    <img src="@/assets/image/ai-2.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-2.jpg" alt="" width="100%" />
                   </div>
                   <div>
-                    <img src="@/assets/image/ai-3.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
                   </div>
                   <div>
-                    <img src="@/assets/image/ai-3.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
                   </div>
                 </slick-slider>
               </div>
@@ -75,16 +83,16 @@
               <div class="mt-5">
                 <slick-slider :options="optionsGP">
                   <div>
-                    <img src="@/assets/image/ai-1.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
                   </div>
                   <div>
-                    <img src="@/assets/image/ai-2.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-2.jpg" alt="" width="100%" />
                   </div>
                   <div>
-                    <img src="@/assets/image/ai-3.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
                   </div>
                   <div>
-                    <img src="@/assets/image/ai-3.png" alt="" width="100%" />
+                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
                   </div>
                 </slick-slider>
               </div>
@@ -156,6 +164,15 @@ export default {
           },
         ],
       },
+      optionBanner: {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        cssEase: "linear",
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      },
     };
   },
 };
@@ -163,6 +180,8 @@ export default {
 <style scoped>
 .banner img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .home {
   background-repeat: no-repeat;
@@ -174,9 +193,6 @@ export default {
   margin-bottom: -65px;
 }
 @media screen and (max-width: 992px) {
-  .banner {
-    margin-top: 80px;
-  }
   .image-about img {
     margin-bottom: 0;
   }

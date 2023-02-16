@@ -10,6 +10,11 @@ import Slick from "vue-slick";
 import "slick-carousel/slick/slick.css";
 import { registerGlobalComponent } from "./utils";
 import "@/assets/css/global.css";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+
+// Import Bootstrap and BootstrapVue CSS files (order is important)
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -25,6 +30,8 @@ const firebaseConfig = {
 // Initialize Firebase
 
 getAnalytics(initializeApp(firebaseConfig));
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false;
 Vue.component("slick-slider", Slick);
