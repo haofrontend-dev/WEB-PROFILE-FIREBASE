@@ -9,7 +9,7 @@
           <div
             v-for="image in listCardImages"
             :key="image.name"
-            class="col-12 col-md-6 col-lg-4 mb-3"
+            class="col col-lg-4"
             @click="showPopupImage(image.src)"
           >
             <div class="card shadow-lg" style="width: 100%">

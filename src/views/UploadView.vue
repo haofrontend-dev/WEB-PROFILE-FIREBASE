@@ -7,9 +7,17 @@
       @vdropzone-complete="afterComplete"
     ></vue-dropzone>
 
-    <div v-if="images.length > 0">
-      <div v-for="(image, index) in images" :key="index">
-        <img :src="image.src" alt="" />
+    <div v-if="images.length > 0" class="row mt-4">
+      <div
+        v-for="(image, index) in images"
+        :key="index"
+        class="col-12 col-lg-3 mb-4"
+      >
+        <img
+          :src="image.src"
+          alt=""
+          style="width: 100%; height: 185px; object-fit: cover"
+        />
       </div>
     </div>
   </div>
@@ -17,7 +25,13 @@
 
 <script>
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getDatabase, ref as dbRef, set } from "firebase/database";
+import {
+  getFirestore,
+  collection,
+  doc,
+  setDoc,
+  getDocs,
+} from "firebase/firestore";
 
 import "firebase/storage";
 import vue2Dropzone from "vue2-dropzone";
@@ -45,7 +59,9 @@ export default {
       show: true,
     };
   },
-
+  mounted() {
+    this.getData();
+  },
   methods: {
     async afterComplete(file) {
       try {
@@ -54,20 +70,21 @@ export default {
           contentType: "image/png, video/mp4",
         };
         const storageRef = getStorage();
-        const database = getDatabase();
 
+        const db = getFirestore();
+        const myCollection = collection(db, "images");
+        const myDocument = doc(myCollection);
         const imageRef = await ref(storageRef, `images/${imageName}.png`);
-        const fileRef = dbRef(database, "images");
-
         let downloadURL = "";
         await uploadBytes(imageRef, file, metaData);
 
         await getDownloadURL(imageRef).then(function (url) {
           downloadURL = url;
         });
-        set(fileRef, {
-          url: downloadURL,
-        });
+        const myData = {
+          myUrl: downloadURL,
+        };
+        setDoc(myDocument, myData);
         this.images.push({ src: downloadURL });
         this.$refs.imgDropzone.removeFile(file);
       } catch (error) {
@@ -95,6 +112,16 @@ export default {
     },
     removeImage(index) {
       this.images.splice(index, 1);
+    },
+    async getData() {
+      const db = getFirestore();
+      const myCollection = collection(db, "images");
+      const querySnapshot = await getDocs(myCollection);
+
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+        this.images.push({ src: doc.data().myUrl });
+      });
     },
   },
 };

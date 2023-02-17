@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav-links">
+  <nav class="nav-links d-none d-lg-block">
     <ul class="nav-menu">
       <li class="nav-item">
         <router-link to="/projects" class="nav-item__link">General</router-link>
@@ -59,9 +59,9 @@ export default {};
   align-items: center;
 
   height: inherit;
-  width: 200px;
+  width: 180px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 16px;
   text-decoration: none;
   color: #033333;
