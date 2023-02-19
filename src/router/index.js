@@ -106,6 +106,7 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/UploadView.vue"),
+    children: [],
   },
   {
     path: "/upload-image",
@@ -118,6 +119,20 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/UploadView.vue"),
+  },
+  {
+    path: "/admin/project/general",
+    name: "admin-general",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    meta: {
+      layout: "admin",
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/admin/project/GaneralUpload.vue"
+      ),
   },
 ];
 

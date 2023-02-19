@@ -76,7 +76,7 @@
                 >
                   <li>
                     <router-link
-                      to="/test"
+                      to="/admin/project/general"
                       class="nav-link text-white text-decoration-none rounded"
                       >General</router-link
                     >

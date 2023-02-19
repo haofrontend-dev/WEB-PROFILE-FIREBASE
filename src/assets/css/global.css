@@ -64,3 +64,6 @@ ul {
   color: #6b9cff;
   font-size: 20px;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
