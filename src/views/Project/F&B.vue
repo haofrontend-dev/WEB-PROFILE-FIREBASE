@@ -5,23 +5,23 @@
         <nav-profile></nav-profile>
       </div>
       <div class="container mt-5">
-        <div class="row">
+        <div v-if="Images.length" class="row">
           <div
-            v-for="image in listCardImages"
-            :key="image.name"
-            class="col col-lg-4"
-            @click="showPopupImage(image.src)"
+            v-for="(image, index) in Images"
+            :key="index"
+            class="col-12 col-lg-4"
+            @click="showPopupImage(image.myUrl)"
           >
             <div class="card shadow-lg" style="width: 100%">
               <img
-                :src="image.src"
+                :src="image.myUrl"
                 class="card-img-top"
-                alt="..."
+                :alt="image.alt"
                 ref="imageCard"
               />
               <div class="card-body">
-                <p class="">{{ image.name }}</p>
-                <p>{{ image.year }}</p>
+                <p class="">{{ image.namePr }}</p>
+                <p>2022</p>
               </div>
             </div>
           </div>
@@ -36,6 +36,8 @@
   </div>
 </template>
 <script>
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+
 import NavProfile from "@/components/NavProfile.vue";
 export default {
   name: "HomeView",
@@ -46,29 +48,31 @@ export default {
     return {
       isPopup: false,
       imagePopup: "",
-      listCardImages: [
-        {
-          src: require("@/assets/image/general/castrol.png"),
-          name: "Castrol",
-          year: "2022",
-        },
-        {
-          src: require("@/assets/image/general/crypto.png"),
-          name: "Castrol",
-          year: "2022",
-        },
-        {
-          src: require("@/assets/image/general/brighton.png"),
-          name: "Castrol",
-          year: "2022",
-        },
-      ],
+      listCardImages: [],
     };
+  },
+  mounted() {
+    this.getDataImages();
   },
   methods: {
     showPopupImage(src) {
       this.isPopup = true;
       this.imagePopup = src;
+    },
+    async getDataImages() {
+      const db = getFirestore();
+
+      const querySnapshot = await getDocs(collection(db, "db_projects"));
+      querySnapshot.forEach((doc) => {
+        this.listCardImages.push(doc.data());
+        console.log(doc);
+      });
+      console.log(this.listCardImages);
+    },
+  },
+  computed: {
+    Images() {
+      return this.listCardImages.filter((image) => image.typePr === "f&b");
     },
   },
 };

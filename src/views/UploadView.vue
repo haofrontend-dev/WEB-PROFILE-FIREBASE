@@ -94,12 +94,6 @@ export default {
     uploadFiles() {
       const input = this.$refs.fileInput;
       const files = input.files;
-      const form = {
-        description: this.description,
-        valueOption: this.valueOption,
-        files,
-      };
-      console.log(form);
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
 
@@ -119,7 +113,6 @@ export default {
       const querySnapshot = await getDocs(myCollection);
 
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         this.images.push({ src: doc.data().myUrl });
       });
     },

@@ -135,7 +135,7 @@ export default {
         { title: "Beauty", value: "beauty" },
         { title: "Branding", value: "branding" },
         { title: "F&B", value: "f&b" },
-        { title: "Motion & Illustration ", value: "mtionAi" },
+        { title: "Motion & Illustration ", value: "motionAi" },
       ],
     };
   },
@@ -161,14 +161,23 @@ export default {
           atl: this.altImage,
           typePr: this.valueSelect,
           namePr: this.nameProject,
+          isActive: true,
         };
         setDoc(myDocument, myData);
         this.altImage = "";
         this.nameProject = "";
         this.valueSelect = "";
+        this.makeToast("success");
       } catch (error) {
         console.log(error);
       }
+    },
+    makeToast(variant = null) {
+      this.$bvToast.toast("Toast body content", {
+        title: `Variant ${variant || "default"}`,
+        variant: variant,
+        solid: true,
+      });
     },
   },
 };

@@ -13,6 +13,7 @@
         </button>
       </div>
     </div>
+    <table-images :columns="columns" :dataTable="allData" />
     <model-image :images="images" />
   </div>
 </template>
@@ -20,9 +21,11 @@
 <script>
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import ModelImage from "@/components/ModelImage.vue";
+import TableImages from "@/components/TableImages.vue";
 export default {
   components: {
     ModelImage,
+    TableImages,
   },
   data() {
     return {
@@ -31,16 +34,23 @@ export default {
       valueOption: null,
       files: [],
       show: true,
+      columns: [
+        { title: "#", type: "id" },
+        { title: "Image", type: "image" },
+        { title: "Name image", type: "name" },
+        { title: "Alt Image", type: "alt" },
+        { title: "Select", type: "select" },
+      ],
     };
   },
   mounted() {
-    this.getData();
+    this.getImages();
   },
   methods: {
     removeImage(index) {
       this.images.splice(index, 1);
     },
-    async getData() {
+    async getImages() {
       const db = getFirestore();
       const myCollection = collection(db, "images");
       const querySnapshot = await getDocs(myCollection);

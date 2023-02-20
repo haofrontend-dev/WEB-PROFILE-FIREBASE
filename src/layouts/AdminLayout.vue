@@ -155,7 +155,19 @@
 </template>
 
 <script>
-export default {};
+import { useUser } from "@/composables/useUser";
+const { getUser } = useUser();
+const { user } = getUser;
+export default {
+  data() {
+    return {
+      dataUser: user,
+    };
+  },
+  mounted() {
+    console.log(this.dataUser);
+  },
+};
 </script>
 
 <style scoped>
