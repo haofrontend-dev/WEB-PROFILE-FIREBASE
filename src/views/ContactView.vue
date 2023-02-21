@@ -3,7 +3,7 @@
     <div class="py-5">
       <h1 class="text-center">Contact me</h1>
       <div class="mt-5">
-        <form action="" class="w-50 mx-auto">
+        <form action="" class="form-wrap mx-auto">
           <div>
             <b-form-input
               v-model="email"
@@ -57,5 +57,13 @@ h1 {
 }
 .btn-send {
   color: #fff;
+}
+.form-wrap {
+  width: 70%;
+}
+@media screen and (max-width: 978px) {
+  .form-wrap {
+    width: 100%;
+  }
 }
 </style>

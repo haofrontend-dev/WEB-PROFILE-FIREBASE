@@ -19,6 +19,20 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import { getAnalytics } from "firebase/analytics";
 import { appData, auth } from "@/config/filsebase";
 import { onAuthStateChanged } from "firebase/auth";
+import VueToast from "vue-toast-notification";
+// Import one of the available themes
+//import 'vue-toast-notification/dist/theme-default.css';
+import "vue-toast-notification/dist/theme-sugar.css";
+
+Vue.use(VueToast);
+//Vue.$toast.open({/* options */});
+let instance = Vue.$toast.open("You did it!");
+
+// Force dismiss specific toast
+instance.dismiss();
+// Dismiss all opened toast immediately
+Vue.$toast.clear();
+
 let app;
 onAuthStateChanged(auth, () => {
   if (!app) {

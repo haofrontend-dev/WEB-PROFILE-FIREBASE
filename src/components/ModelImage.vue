@@ -123,6 +123,10 @@ export default {
       type: Array,
       require: true,
     },
+    models: {
+      type: String,
+      require: true,
+    },
   },
   data() {
     return {
@@ -155,7 +159,7 @@ export default {
     uploadImageProject(urlImg) {
       try {
         const db = getFirestore();
-        const myCollection = collection(db, "db_projects");
+        const myCollection = collection(db, this.models);
         const myDocument = doc(myCollection);
         const myData = {
           myUrl: urlImg,
@@ -164,21 +168,24 @@ export default {
           namePr: this.nameProject,
           isActive: true,
         };
+
         setDoc(myDocument, myData);
+        this.$toast.open({
+          message: "Upload is success",
+          type: "success",
+          // all of other options may go here
+        });
         this.altImage = "";
         this.nameProject = "";
         this.valueSelect = "";
-        this.makeToast("success");
       } catch (error) {
         console.log(error);
+        this.$toast.open({
+          message: "Something went wrong!",
+          type: "error",
+          // all of other options may go here
+        });
       }
-    },
-    makeToast(variant = null) {
-      this.$bvToast.toast("Toast body content", {
-        title: `Variant ${variant || "default"}`,
-        variant: variant,
-        solid: true,
-      });
     },
   },
 };

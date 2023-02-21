@@ -14,7 +14,7 @@
       </div>
     </div>
     <table-images :columns="columns" />
-    <model-image :images="images" :models="'db_projects'" />
+    <model-image :images="images" :models="'db_homepage'" />
   </div>
 </template>
 

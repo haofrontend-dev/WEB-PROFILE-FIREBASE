@@ -70,9 +70,9 @@ export default {
   },
   computed: {
     Images() {
-      return this.listCardImages.filter(
-        (image) => image.typePr === "key-visual"
-      );
+      return this.listCardImages
+        .filter((image) => image.typePr === "key-visual")
+        .reverse();
     },
   },
 };

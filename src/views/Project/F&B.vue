@@ -70,7 +70,9 @@ export default {
   },
   computed: {
     Images() {
-      return this.listCardImages.filter((image) => image.typePr === "f&b");
+      return this.listCardImages
+        .filter((image) => image.typePr === "f&b")
+        .reverse();
     },
   },
 };

@@ -70,7 +70,9 @@ export default {
   },
   computed: {
     Images() {
-      return this.listCardImages.filter((image) => image.typePr === "motionAi");
+      return this.listCardImages
+        .filter((image) => image.typePr === "motionAi")
+        .reverse();
     },
   },
 };
