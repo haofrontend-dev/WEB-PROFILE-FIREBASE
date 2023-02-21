@@ -8,15 +8,14 @@
         >
           <a
             href="/"
-            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+            class="d-flex align-items-center justify-content-between mb-3 mb-md-0 text-white text-decoration-none"
           >
             <img
               src="@/assets/image/logo.png"
               alt=""
               style="width: 80px"
-              class="me-3"
+              class="mx-auto"
             />
-            <span class="fs-4">Username</span>
           </a>
           <hr />
           <ul class="nav nav-pills flex-column mb-auto">
@@ -49,11 +48,9 @@
               </router-link>
             </li>
             <li class="mb-1 nav-item">
-              <button
+              <router-link
                 class="nav-link text-white w-100 d-flex align-items-center text-start"
-                data-bs-toggle="collapse"
-                data-bs-target="#home-collapse"
-                aria-expanded="true"
+                to="/admin/project"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -69,55 +66,7 @@
                   />
                 </svg>
                 Project Image
-              </button>
-              <div class="collapse show ms-5" id="home-collapse" style="">
-                <ul
-                  class="btn-toggle-nav list-unstyled fw-normal pb-1 ps -3 small"
-                >
-                  <li>
-                    <router-link
-                      to="/admin/project/general"
-                      class="nav-link text-white text-decoration-none rounded"
-                      >General</router-link
-                    >
-                  </li>
-                  <li>
-                    <router-link
-                      to="/test"
-                      class="nav-link text-white text-decoration-none rounded"
-                      >Beauty & FMCG</router-link
-                    >
-                  </li>
-                  <li>
-                    <router-link
-                      to="/test"
-                      class="nav-link text-white text-decoration-none rounded"
-                      >F&B</router-link
-                    >
-                  </li>
-                  <li>
-                    <router-link
-                      to="/test"
-                      class="nav-link text-white text-decoration-none rounded"
-                      >Key visual</router-link
-                    >
-                  </li>
-                  <li>
-                    <router-link
-                      to="/test"
-                      class="nav-link text-white text-decoration-none rounded"
-                      >Branding</router-link
-                    >
-                  </li>
-                  <li>
-                    <router-link
-                      to="/test"
-                      class="nav-link text-white text-decoration-none rounded"
-                      >Motion & Illustration</router-link
-                    >
-                  </li>
-                </ul>
-              </div>
+              </router-link>
             </li>
           </ul>
           <hr />
@@ -135,14 +84,24 @@
                 height="32"
                 class="rounded-circle me-2"
               />
-              <strong>mdo</strong>
+              <strong v-if="user">{{ user.displayName }}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <li>
+                <router-link
+                  class="dropdown-item cursor-pointer"
+                  to="/admin/project"
+                  >New project...</router-link
+                >
+              </li>
+              <li>
+                <router-link class="dropdown-item cursor-pointer" to="/register"
+                  >Create User</router-link
+                >
+              </li>
+              <li>
+                <button class="dropdown-item" @click="logOut">Sign out</button>
+              </li>
             </ul>
           </div>
         </div>
@@ -155,17 +114,45 @@
 </template>
 
 <script>
-import { useUser } from "@/composables/useUser";
-const { getUser } = useUser();
-const { user } = getUser;
+import { auth } from "@/config/filsebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import router from "@/router";
 export default {
   data() {
     return {
-      dataUser: user,
+      dataUser: "",
+      user: auth.currentUser,
+      isPending: false,
+      errorMessge: "",
     };
   },
   mounted() {
-    console.log(this.dataUser);
+    this.getUser();
+  },
+  methods: {
+    getUser() {
+      onAuthStateChanged(auth, (currentUser) => {
+        this.user = currentUser;
+      });
+      if (this.user) {
+        return this.user;
+      } else {
+        console.log("User chưa đăng nhập");
+        return;
+      }
+    },
+    async logOut() {
+      this.errorMessge = null;
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          router.push({ name: "login", params: {} });
+        })
+        .catch((err) => {
+          // An error happened.
+          console.log(err);
+        });
+    },
   },
 };
 </script>

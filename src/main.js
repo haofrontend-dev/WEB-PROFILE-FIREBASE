@@ -17,19 +17,27 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 import { getAnalytics } from "firebase/analytics";
-import { appData } from "@/config/filsebase";
-// Initialize Firebase
+import { appData, auth } from "@/config/filsebase";
+import { onAuthStateChanged } from "firebase/auth";
+let app;
+onAuthStateChanged(auth, () => {
+  if (!app) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    getAnalytics(appData);
+    Vue.use(BootstrapVue);
+    Vue.use(IconsPlugin);
 
-getAnalytics(appData);
-Vue.use(BootstrapVue);
-Vue.use(IconsPlugin);
+    Vue.config.productionTip = false;
+    Vue.component("slick-slider", Slick);
 
-Vue.config.productionTip = false;
-Vue.component("slick-slider", Slick);
-
-const app = new Vue({
-  router,
-  render: (h) => h(App),
+    app = new Vue({
+      router,
+      render: (h) => h(App),
+    });
+    registerGlobalComponent(app);
+    app.$mount("#app");
+    // ...
+  }
 });
-registerGlobalComponent(app);
-app.$mount("#app");
+// Initialize Firebase

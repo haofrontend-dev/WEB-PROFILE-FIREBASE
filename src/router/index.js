@@ -1,8 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
-
+import { auth } from "@/config/filsebase";
 Vue.use(VueRouter);
+
+const requireAuth = (to, from, next) => {
+  const user = auth.currentUser;
+  if (!user) next({ name: "login", params: {} });
+  else next();
+};
 
 const routes = [
   {
@@ -74,8 +80,8 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Project/MotionAi.vue"),
   },
   {
-    path: "/contacts",
-    name: "contacts",
+    path: "/contact",
+    name: "contact",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -106,6 +112,7 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/RegisterView.vue"),
+    beforeEnter: requireAuth,
   },
   {
     path: "/admin",
@@ -118,6 +125,7 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/UploadView.vue"),
+    beforeEnter: requireAuth,
     children: [],
   },
   {
@@ -131,9 +139,10 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/UploadView.vue"),
+    beforeEnter: requireAuth,
   },
   {
-    path: "/admin/project/general",
+    path: "/admin/project",
     name: "admin-general",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -143,8 +152,9 @@ const routes = [
     },
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "../views/admin/project/GaneralUpload.vue"
+        /* webpackChunkName: "about" */ "../views/admin/project/ProjectUpload.vue"
       ),
+    beforeEnter: requireAuth,
   },
 ];
 

@@ -9,7 +9,7 @@
           <div
             v-for="(image, index) in Images"
             :key="index"
-            class="col-12 col-lg-4"
+            class="col-12 col-lg-4 mb-4"
             @click="showPopupImage(image.myUrl)"
           >
             <div class="card shadow-lg" style="width: 100%">
@@ -65,9 +65,7 @@ export default {
       const querySnapshot = await getDocs(collection(db, "db_projects"));
       querySnapshot.forEach((doc) => {
         this.listCardImages.push(doc.data());
-        console.log(doc);
       });
-      console.log(this.listCardImages);
     },
   },
   computed: {

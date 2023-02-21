@@ -17,7 +17,7 @@
             aria-describedby="input-1-live-feedback"
           ></b-form-input>
           <b-form-invalid-feedback id="email-invalid-feedback">
-            >This is a required field and must be at least 3
+            This is a required field and must be at least 3
           </b-form-invalid-feedback>
         </b-form-group>
         <b-form-group
@@ -82,7 +82,7 @@ export default {
   data() {
     return {
       form: {
-        name: null,
+        userName: null,
         email: null,
         password: null,
       },

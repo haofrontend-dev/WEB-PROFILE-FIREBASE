@@ -13,7 +13,7 @@
         </button>
       </div>
     </div>
-    <table-images :columns="columns" :dataTable="allData" />
+    <table-images :columns="columns" />
     <model-image :images="images" />
   </div>
 </template>

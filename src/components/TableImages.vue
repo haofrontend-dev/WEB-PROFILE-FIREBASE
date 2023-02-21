@@ -21,6 +21,7 @@
               type="checkbox"
               role="switch"
               id="flexSwitchCheckDefault"
+              disabled
             />
           </div>
         </td>

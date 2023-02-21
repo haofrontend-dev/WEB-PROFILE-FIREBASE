@@ -84,6 +84,7 @@
                     ></textarea>
                   </div>
                   <div class="mb-3">
+                    <label for="" class="form-label">Select Project</label>
                     <select
                       v-model="valueSelect"
                       class="form-select"
