@@ -2,9 +2,9 @@
   <div>
     <header class="text-lg-center fixed-top">
       <div
-        class="navbar navbar-expand-lg d-lg-block justify-content-between h-100"
+        class="navbar navbar-expand-lg d-lg-block justify-content-between h-100 navbar-mobile"
       >
-        <b-navbar-brand to="/" class="d-inline-block h-100 ms-4"
+        <b-navbar-brand to="/" class="d-inline-block h-100 logo"
           ><img class="logo" src="@/assets/image/logo.png" alt=""
         /></b-navbar-brand>
         <b-navbar-toggle
@@ -26,21 +26,23 @@
         <span class="icon-close" @click="isOpenMenu = false">&times;</span>
         <ul class="nav-list">
           <li v-for="menu in mobileMenus" :key="menu.name">
-            <span
+            <button
               v-if="menu.children"
               @click="menu.dropdown = !menu.dropdown"
-              >{{ menu.name }}</span
+              class="btn"
             >
-            <router-link v-else :to="menu.path" @click="isOpenMenu = false">{{
-              menu.name
-            }}</router-link>
+              <span> {{ menu.name }}</span>
+            </button>
+            <button v-else @click="closeMenuMobile" class="btn">
+              <router-link :to="menu.path">{{ menu.name }}</router-link>
+            </button>
 
             <div v-if="menu.dropdown" class="nav-child">
               <ul>
                 <li v-for="child in menu.children" :key="child.name">
-                  <router-link :to="child.path" @click="isOpenMenu = false">{{
-                    child.name
-                  }}</router-link>
+                  <button class="btn" @click="closeMenuMobile">
+                    <router-link :to="child.path">{{ child.name }}</router-link>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -76,6 +78,11 @@ export default {
       ],
     };
   },
+  methods: {
+    closeMenuMobile() {
+      this.isOpenMenu = false;
+    },
+  },
 };
 </script>
 
@@ -91,6 +98,15 @@ header {
 }
 .logo {
   height: 100%;
+}
+.navbar-mobile {
+  position: relative;
+}
+.navbar-mobile .logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 nav {
   margin-top: 80px;
@@ -128,6 +144,7 @@ nav a.router-link-exact-active {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 100;
+  transition: 1s;
 }
 
 .nav-content .icon-close {
@@ -148,9 +165,14 @@ nav a.router-link-exact-active {
 .nav-content .nav-list {
   margin-top: 66px;
   list-style: none;
+  transition: 1s;
 }
 .nav-content .nav-list li {
   padding: 8px;
+}
+.nav-content .nav-list li button {
+  outline: none;
+  border: none;
 }
 .nav-content .nav-list li a,
 .nav-content .nav-list li span {

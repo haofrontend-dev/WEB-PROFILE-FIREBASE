@@ -41,23 +41,41 @@
                 Graphic designs
               </h2>
               <div class="mt-5">
-                <slick-slider :options="optionsGP">
-                  <div>
-                    <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
+                <div class="row">
+                  <div class="col-6 col-lg-4 mb-4">
+                    <div>
+                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
+                    </div>
                   </div>
-                  <div>
-                    <img src="@/assets/image/ai-2.jpg" alt="" width="100%" />
+                  <div class="col-6 col-lg-4 mb-4">
+                    <div>
+                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
+                    </div>
                   </div>
-                  <div>
-                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
+                  <div class="col-6 col-lg-4 mb-4">
+                    <div>
+                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
+                    </div>
                   </div>
-                  <div>
-                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
+                  <div class="col-6 col-lg-4 mb-4">
+                    <div>
+                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
+                    </div>
                   </div>
-                </slick-slider>
+                  <div class="col-6 col-lg-4 mb-4">
+                    <div>
+                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
+                    </div>
+                  </div>
+                  <div class="col-6 col-lg-4 mb-4">
+                    <div>
+                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="mt-5 section-ai">
+            <div class="mt-5 ection-ai">
               <h2 class="text-white fw-bold text-center mt-3">Illustrations</h2>
               <div class="mt-5">
                 <slick-slider :options="optionsGP">
@@ -76,41 +94,16 @@
                 </slick-slider>
               </div>
             </div>
-            <div class="mt-5 section-mg">
-              <h2 class="text-white fw-bold text-center mt-3">
-                Motion graphics
-              </h2>
-              <div class="mt-5">
-                <slick-slider :options="optionsGP">
-                  <div>
-                    <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
-                  </div>
-                  <div>
-                    <img src="@/assets/image/ai-2.jpg" alt="" width="100%" />
-                  </div>
-                  <div>
-                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
-                  </div>
-                  <div>
-                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
-                  </div>
-                </slick-slider>
-              </div>
-              <div class="send-mail">
-                <div class="row px-5">
-                  <div class="col-lg-5 mb-3 mb-lg-0">
-                    <span class="text-white"
-                      >For work please send email to</span
-                    >
-                  </div>
-                  <div class="col-lg-7">
-                    <div class="d-flex align-items-center gap-3">
-                      <input
-                        type="text"
-                        placeholder="linhchi.nt.158@gmail.com"
-                      />
-                      <button>Send</button>
-                    </div>
+
+            <div class="send-mail">
+              <div class="row px-5">
+                <div class="col-lg-5 mb-3 mb-lg-0">
+                  <span class="text-white">For work please send email to</span>
+                </div>
+                <div class="col-lg-7">
+                  <div class="d-flex align-items-center gap-3">
+                    <input type="text" placeholder="linhchi.nt.158@gmail.com" />
+                    <button>Send</button>
                   </div>
                 </div>
               </div>
@@ -150,7 +143,7 @@ export default {
               arrows: false,
               centerMode: true,
               centerPadding: "40px",
-              slidesToShow: 2,
+              slidesToShow: 1,
             },
           },
           {
@@ -192,14 +185,15 @@ export default {
   width: 360px;
   margin-bottom: -65px;
 }
+.section-gp img {
+  object-fit: contain;
+}
 @media screen and (max-width: 992px) {
   .image-about img {
     margin-bottom: 0;
   }
 }
-.about-me p {
-  text-align: justify;
-}
+
 .about-me .text-header {
   color: #6b9cff;
 }
@@ -252,5 +246,9 @@ export default {
 .send-mail button:hover {
   background-color: #033333;
   color: white;
+}
+
+img {
+  border-radius: 15px;
 }
 </style>

@@ -11,7 +11,7 @@
       <div
         v-for="(image, index) in images"
         :key="index"
-        class="col-12 col-lg-2 mb-4"
+        class="col-6 col-lg-2 mb-4"
       >
         <img
           :src="image.src"
@@ -127,6 +127,6 @@ export default {
 
 img {
   max-width: 250px;
-  margin: 15px;
+  margin: 15px auto;
 }
 </style>

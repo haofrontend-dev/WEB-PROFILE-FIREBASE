@@ -1,10 +1,18 @@
 <template>
   <div class="container-fluid">
+    <div class="d-block d-lg-none">
+      <button class="btn btn-toggle--sidebar" @click="isShowSidebar = true">
+        <b-icon icon="list"></b-icon>
+      </button>
+    </div>
     <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+      <div
+        class="d-lg-block col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark sidebar-left"
+        :class="isShowSidebar ? 'd-block' : 'd-none'"
+        style="width: 280px"
+      >
         <div
           class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark min-vh-100"
-          style="width: 280px"
         >
           <a
             href="/"
@@ -106,10 +114,17 @@
           </div>
         </div>
       </div>
-      <div class="col py-3">
+
+      <div class="col py-3 main-content">
         <slot></slot>
       </div>
     </div>
+
+    <div
+      v-if="isShowSidebar"
+      class="overlay"
+      @click="isShowSidebar = false"
+    ></div>
   </div>
 </template>
 
@@ -124,6 +139,7 @@ export default {
       user: auth.currentUser,
       isPending: false,
       errorMessge: "",
+      isShowSidebar: false,
     };
   },
   mounted() {
@@ -158,8 +174,34 @@ export default {
 </script>
 
 <style scoped>
+.sidebar-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.main-content {
+  margin-left: 300px;
+}
 .nav-link.router-link-active {
   color: var(--bs-nav-pills-link-active-color);
   background-color: var(--bs-nav-pills-link-active-bg);
+}
+.btn-toggle--sidebar {
+  font-size: 24px;
+  margin-left: 16px;
+  margin-top: 16px;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+@media screen and (max-width: 978px) {
+  .main-content {
+    margin-left: 0;
+  }
 }
 </style>

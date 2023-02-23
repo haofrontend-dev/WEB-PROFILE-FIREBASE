@@ -9,7 +9,7 @@
           <div
             v-for="(image, index) in Images"
             :key="index"
-            class="col-12 col-lg-4 mb-4"
+            class="col-6 col-lg-4 mb-4"
             @click="showPopupImage(image.myUrl)"
           >
             <div class="card shadow-lg" style="width: 100%">
@@ -122,6 +122,9 @@ p {
   object-fit: cover;
 }
 @media screen and (max-width: 768px) {
+  .card-img-top {
+    height: 185px;
+  }
   .popup-image img {
     width: 95%;
   }
