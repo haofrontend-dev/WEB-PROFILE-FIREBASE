@@ -57,9 +57,13 @@
             <div class="mt-5 section-ai">
               <h2 class="text-white fw-bold text-center mt-3">Illustrations</h2>
               <div class="mt-5">
-                <slick-slider :options="optionsGP" class="">
+                <slick-slider
+                  v-if="imagesAi.length > 0"
+                  :options="optionsGP"
+                  class=""
+                >
                   <div v-for="(image, index) in imagesAi" :key="index">
-                    <img :src="image.myUrl" :alt="image.alt" width="100%" />
+                    <img :src="image.myUrl" :alt="image.atl" class="w-100" />
                   </div>
                 </slick-slider>
               </div>
