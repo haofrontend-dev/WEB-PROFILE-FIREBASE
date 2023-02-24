@@ -13,8 +13,12 @@
         </button>
       </div>
     </div>
-    <table-images :columns="columns" />
-    <model-image :images="images" :models="'db_homepage'" />
+    <table-images :columns="columns" models="db_homepage" />
+    <model-image
+      :images="images"
+      models="db_homepage"
+      :select-options="selectOptions"
+    />
   </div>
 </template>
 
@@ -32,14 +36,17 @@ export default {
       description: "",
       images: [],
       valueOption: null,
-      files: [],
-      show: true,
       columns: [
         { title: "#", type: "id" },
         { title: "Image", type: "image" },
         { title: "Name image", type: "name" },
         { title: "Alt Image", type: "alt" },
         { title: "Select", type: "select" },
+      ],
+      selectOptions: [
+        { title: "Slider", value: "slider" },
+        { title: "Graphic designs", value: "gp-design" },
+        { title: "Illustrations", value: "Illustrations" },
       ],
     };
   },

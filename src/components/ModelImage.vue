@@ -127,6 +127,10 @@ export default {
       type: String,
       require: true,
     },
+    selectOptions: {
+      type: Array,
+      require: true,
+    },
   },
   data() {
     return {
@@ -134,14 +138,6 @@ export default {
       altImage: "",
       valueSelect: "general",
       selectItem: null,
-      selectOptions: [
-        { title: "General", value: "general" },
-        { title: "Key Visual", value: "key-visual" },
-        { title: "Beauty", value: "beauty" },
-        { title: "Branding", value: "branding" },
-        { title: "F&B", value: "f&b" },
-        { title: "Motion & Illustration ", value: "motionAi" },
-      ],
     };
   },
   computed: {
@@ -195,6 +191,7 @@ export default {
 .modal-dialog.modal-xl {
   min-width: 90%;
 }
+
 .modal-body .image-select {
   box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #2271b1;
 }

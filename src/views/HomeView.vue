@@ -42,34 +42,13 @@
               </h2>
               <div class="mt-5">
                 <div class="row">
-                  <div class="col-6 col-lg-4 mb-4">
+                  <div
+                    v-for="(image, index) in imagesGpDesign"
+                    :key="index"
+                    class="col-6 col-lg-4 mb-4"
+                  >
                     <div>
-                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
-                    </div>
-                  </div>
-                  <div class="col-6 col-lg-4 mb-4">
-                    <div>
-                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
-                    </div>
-                  </div>
-                  <div class="col-6 col-lg-4 mb-4">
-                    <div>
-                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
-                    </div>
-                  </div>
-                  <div class="col-6 col-lg-4 mb-4">
-                    <div>
-                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
-                    </div>
-                  </div>
-                  <div class="col-6 col-lg-4 mb-4">
-                    <div>
-                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
-                    </div>
-                  </div>
-                  <div class="col-6 col-lg-4 mb-4">
-                    <div>
-                      <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
+                      <img :src="image.myUrl" :alt="image.alt" width="100%" />
                     </div>
                   </div>
                 </div>
@@ -79,17 +58,8 @@
               <h2 class="text-white fw-bold text-center mt-3">Illustrations</h2>
               <div class="mt-5">
                 <slick-slider :options="optionsGP" class="">
-                  <div>
-                    <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
-                  </div>
-                  <div>
-                    <img src="@/assets/image/ai-2.jpg" alt="" width="100%" />
-                  </div>
-                  <div>
-                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
-                  </div>
-                  <div>
-                    <img src="@/assets/image/ai-3.jpg" alt="" width="100%" />
+                  <div v-for="(image, index) in imagesAi" :key="index">
+                    <img :src="image.myUrl" :alt="image.alt" width="100%" />
                   </div>
                 </slick-slider>
               </div>
@@ -117,12 +87,14 @@
 
 <script>
 import bgSkill from "@/assets/image/bg-skill.png";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 export default {
   name: "HomeView",
   data() {
     return {
       imageBanner: "'image/banner.png'",
       bgSkill,
+      listCardImages: [],
       optionsGP: {
         centerMode: true,
         centerPadding: "",
@@ -167,6 +139,39 @@ export default {
         autoplaySpeed: 2000,
       },
     };
+  },
+  mounted() {
+    this.getDataImages();
+  },
+  methods: {
+    async getDataImages() {
+      const db = getFirestore();
+
+      const querySnapshot = await getDocs(collection(db, "db_homepage"));
+      querySnapshot.forEach((doc) => {
+        this.listCardImages.push(doc.data());
+      });
+    },
+  },
+  computed: {
+    imagesSlider() {
+      return this.listCardImages
+        .filter((image) => image.typePr === "slider")
+        .reverse()
+        .slice(0, 2);
+    },
+    imagesGpDesign() {
+      return this.listCardImages
+        .filter((image) => image.typePr === "gp-design")
+        .reverse()
+        .slice(0, 5);
+    },
+    imagesAi() {
+      return this.listCardImages
+        .filter((image) => image.typePr === "Illustrations")
+        .reverse()
+        .slice(0, 5);
+    },
   },
 };
 </script>

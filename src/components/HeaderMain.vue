@@ -4,9 +4,9 @@
       <div
         class="navbar navbar-expand-lg d-lg-block justify-content-between h-100 navbar-mobile"
       >
-        <nuxt-link to="/" class="d-inline-block h-100 logo"
+        <router-link to="/" class="d-inline-block h-100 logo"
           ><img class="logo" src="@/assets/image/logo.png" alt=""
-        /></nuxt-link>
+        /></router-link>
         <button
           @click="isOpenMenu = true"
           class="btn-toggle d-inline-block d-lg-none"

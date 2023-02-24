@@ -4,7 +4,7 @@
       <div class="row footer-content">
         <div class="col-6 col-lg-3 mb-3 logo">
           <router-link to="/">
-            <img src="@/assets/image/logo.png" alt="" class="w-100" />
+            <img src="@/assets/image/logo.png" alt="" class="w-75" />
           </router-link>
         </div>
         <div class="col-6 col-lg-3 mb-3 service">

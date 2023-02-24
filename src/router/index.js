@@ -156,6 +156,21 @@ const routes = [
       ),
     beforeEnter: requireAuth,
   },
+  {
+    path: "/admin/home",
+    name: "admin-home",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    meta: {
+      layout: "admin",
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/admin/home/UploadHomePage.vue"
+      ),
+    beforeEnter: requireAuth,
+  },
 ];
 
 const router = new VueRouter({

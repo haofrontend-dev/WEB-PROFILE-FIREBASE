@@ -11,13 +11,16 @@
       <div
         v-for="(image, index) in images"
         :key="index"
-        class="col-6 col-lg-2 mb-4"
+        class="col-6 col-lg-2 mb-4 item-image"
       >
         <img
           :src="image.src"
           alt=""
           style="width: 100%; height: 185px; object-fit: cover"
         />
+        <span class="btn-delete" @click="deleteImage(image.id)"
+          ><i class="fa-regular fa-trash-can"></i
+        ></span>
       </div>
     </div>
   </div>
@@ -31,6 +34,7 @@ import {
   doc,
   setDoc,
   getDocs,
+  deleteDoc,
 } from "firebase/firestore";
 
 import "firebase/storage";
@@ -111,15 +115,58 @@ export default {
       const db = getFirestore();
       const myCollection = collection(db, "images");
       const querySnapshot = await getDocs(myCollection);
-
       querySnapshot.forEach((doc) => {
-        this.images.push({ src: doc.data().myUrl });
+        this.images.push({ src: doc.data().myUrl, id: doc.id });
       });
+    },
+    // Delete all the images
+    async deleteImage(docId) {
+      const db = getFirestore();
+
+      const docRef = doc(db, "images", docId);
+
+      await deleteDoc(docRef)
+        .then(() => {
+          console.log("Xóa tài liệu thành công");
+          this.$toast.open({
+            message: "Delete image is success",
+            type: "success",
+            // all of other options may go here
+          });
+          // Xóa tài liệu khỏi danh sách
+          this.images = this.images.filter((image) => image.id !== docId);
+        })
+        .catch((error) => {
+          this.$toast.open({
+            message: "Error deleting image.",
+            type: "error",
+            // all of other options may go here
+          });
+          console.error("Lỗi khi xóa tài liệu: ", error);
+        });
     },
   },
 };
 </script>
 <style scoped>
+.item-image {
+  position: relative;
+}
+.item-image .btn-delete {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  color: #ff3232;
+}
 .img-div {
   display: flex;
   margin: 25px;
