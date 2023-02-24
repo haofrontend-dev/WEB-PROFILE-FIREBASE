@@ -15,10 +15,10 @@
       <div class="bg-white">
         <div class="container pt-5">
           <div class="row">
-            <div class="col col-lg-5 image-about">
-              <img src="@/assets/image/image-about.png" alt="" />
+            <div class="co-12 col-lg-5 image-about">
+              <img src="@/assets/image/image-about.png" alt="" class="w-100" />
             </div>
-            <div class="col col-lg-7 about-me">
+            <div class="col-12 col-lg-7 about-me">
               <div>
                 <h2 class="text-header">About me</h2>
                 <p class="pe-5">
@@ -75,10 +75,10 @@
                 </div>
               </div>
             </div>
-            <div class="mt-5 ection-ai">
+            <div class="mt-5 section-ai">
               <h2 class="text-white fw-bold text-center mt-3">Illustrations</h2>
               <div class="mt-5">
-                <slick-slider :options="optionsGP">
+                <slick-slider :options="optionsGP" class="">
                   <div>
                     <img src="@/assets/image/ai-1.jpg" alt="" width="100%" />
                   </div>
@@ -133,9 +133,9 @@ export default {
         autoplay: true,
         autoplaySpeed: 2000,
         prevArrow:
-          "<button type='button' class='slick-prev pull-left'></button>",
+          "<button type='button' class='slick-prev pull-left'><i class='fa-solid fa-arrow-left'></i></button>",
         nextArrow:
-          "<button type='button' class='slick-next pull-right'></button>",
+          "<button type='button' class='slick-next pull-right'><i class='fa-solid fa-arrow-right'></i></button>",
         responsive: [
           {
             breakpoint: 768,
@@ -185,13 +185,9 @@ export default {
   width: 360px;
   margin-bottom: -65px;
 }
-.section-gp img {
-  object-fit: contain;
-}
-@media screen and (max-width: 992px) {
-  .image-about img {
-    margin-bottom: 0;
-  }
+.section-gp img,
+.section-ai img {
+  max-height: 340px;
 }
 
 .about-me .text-header {
@@ -250,5 +246,25 @@ export default {
 
 img {
   border-radius: 15px;
+}
+
+@media screen and (max-width: 992px) {
+  .banner img {
+    height: 432px;
+    object-fit: cover;
+  }
+  .image-about img {
+    margin-bottom: 0;
+  }
+  .send-mail {
+    background-color: #2a4dbe;
+    padding: 20px;
+    border-radius: 24px;
+    margin-bottom: -138px;
+  }
+  .section-gp img,
+  .section-ai img {
+    max-height: 200px;
+  }
 }
 </style>

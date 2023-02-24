@@ -89,10 +89,7 @@ p {
   transform: translateY(-4px);
   cursor: pointer;
 }
-.card-img-top {
-  height: 380px;
-  object-fit: cover;
-}
+
 .popup-image {
   position: fixed;
   top: 0;
@@ -122,9 +119,6 @@ p {
   object-fit: cover;
 }
 @media screen and (max-width: 768px) {
-  .card-img-top {
-    height: 185px;
-  }
   .popup-image img {
     width: 95%;
   }

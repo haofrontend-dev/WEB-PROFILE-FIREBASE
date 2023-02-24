@@ -62,7 +62,7 @@ export default {
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   position: fixed;
-  right: 16px;
+  right: 24px;
   bottom: 16px;
 }
 .btn-up button {

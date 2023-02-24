@@ -1,14 +1,13 @@
 <template>
   <div class="footer mt-5">
     <div class="container">
-      <div class="row">
+      <div class="row footer-content">
         <div class="col-6 col-lg-3 mb-3 logo">
           <router-link to="/">
-            <img src="@/assets/image/logo.png" alt="" />
+            <img src="@/assets/image/logo.png" alt="" class="w-100" />
           </router-link>
-          <p class="mt-5 h5 text-white">All rights reserved 2023</p>
         </div>
-        <div class="col-6 col-lg-3 service">
+        <div class="col-6 col-lg-3 mb-3 service">
           <div>
             <span class="text-white fw-bold h5">Services</span>
             <ul>
@@ -20,7 +19,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-6 col-lg-3 service contact">
+        <div class="col-6 col-lg-3 mb-3 service contact">
           <div>
             <div>
               <span class="text-white fw-bold h5">Contact</span>
@@ -36,7 +35,7 @@
             </div>
           </div>
         </div>
-        <div class="col-6 col-lg-3 service follow">
+        <div class="col-6 col-lg-3 mb-3 service follow">
           <div>
             <span class="text-white fw-bold h5">Follow me</span>
             <ul>
@@ -46,6 +45,7 @@
           </div>
         </div>
       </div>
+      <p class="mt-3 h5 text-white">All rights reserved 2023</p>
     </div>
   </div>
 </template>
@@ -72,7 +72,14 @@ export default {};
   width: 35px;
   margin-right: 12px;
 }
+.contact li:nth-child(2) {
+  word-wrap: break-word;
+}
 
+.footer-content {
+  padding-bottom: 16px;
+  border-bottom: 1px solid white;
+}
 @media screen and (max-width: 978px) {
   .footer .logo {
     order: 3;

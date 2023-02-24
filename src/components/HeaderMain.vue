@@ -1,16 +1,18 @@
 <template>
   <div>
-    <header class="text-lg-center fixed-top">
+    <header class="text-lg-center fixed-top w-100">
       <div
         class="navbar navbar-expand-lg d-lg-block justify-content-between h-100 navbar-mobile"
       >
-        <b-navbar-brand to="/" class="d-inline-block h-100 logo"
+        <nuxt-link to="/" class="d-inline-block h-100 logo"
           ><img class="logo" src="@/assets/image/logo.png" alt=""
-        /></b-navbar-brand>
-        <b-navbar-toggle
-          target="nav-collapse"
+        /></nuxt-link>
+        <button
           @click="isOpenMenu = true"
-        ></b-navbar-toggle>
+          class="btn-toggle d-inline-block d-lg-none"
+        >
+          <img src="@/assets/image/SVG/bar.svg" alt="" width="34" height="20" />
+        </button>
       </div>
     </header>
     <nav class="d-none d-lg-block">
@@ -107,6 +109,14 @@ header {
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
+}
+.btn-toggle {
+  padding: 8px;
+  outline: none;
+  background: transparent;
+  font-size: 30px;
+  color: #fff;
+  margin-left: 16px;
 }
 nav {
   margin-top: 80px;

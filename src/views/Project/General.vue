@@ -81,6 +81,9 @@ export default {
 p {
   margin: 0;
 }
+.card-body {
+  padding: 8px;
+}
 .card {
   border: none;
   transition: all 0.2s;
@@ -89,10 +92,7 @@ p {
   transform: translateY(-4px);
   cursor: pointer;
 }
-.card-img-top {
-  height: 380px;
-  object-fit: cover;
-}
+
 .popup-image {
   position: fixed;
   top: 0;
@@ -122,9 +122,6 @@ p {
   object-fit: cover;
 }
 @media screen and (max-width: 768px) {
-  .card-img-top {
-    height: 185px;
-  }
   .popup-image img {
     width: 95%;
   }
