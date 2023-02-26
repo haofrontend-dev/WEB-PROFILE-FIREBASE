@@ -1,13 +1,31 @@
+@font-face {
+  font-family: "GoThamBold";
+  src: url("../font/SVN-GOTHAM BOLD.TTF");
+}
+@font-face {
+  font-family: "GoThamBook";
+  src: url("../font/SVN-GOTHAM BOOK.OTF");
+}
+@font-face {
+  font-family: "GoThamBlack";
+  src: url("../font/SVN-GOTHAM BLACK.OTF");
+}
 * {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
 }
-
+body {
+  font-family: GoThamBook;
+}
 ol,
 ul {
   list-style: none;
+}
+h2 {
+  font-family: GoThamBlack;
+  font-size: 50px;
 }
 .slick-list {
   height: 100%;
@@ -24,7 +42,6 @@ ul {
 }
 
 .slick-center img {
-  transform: scale(1.08);
 }
 .slick-prev {
   position: absolute;
@@ -59,12 +76,18 @@ ul {
 .cursor-not-allowed {
   cursor: not-allowed;
 }
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+}
 .card-img-top {
   max-height: 300px;
   height: 300px;
   object-fit: cover;
 }
-
+.text-justify {
+  text-align: justify;
+}
 @media screen and (max-width: 768px) {
   .card-img-top {
     height: 100px;

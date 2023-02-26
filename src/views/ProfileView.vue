@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="py-5">
-      <h1 class="text-center">About me</h1>
+      <h2 class="text-center">About me</h2>
       <div class="mt-5">
         <img src="@/assets/image/img-about-page.jpg" alt="" class="img-fluid" />
       </div>
@@ -9,7 +9,7 @@
   </div>
 </template>
 <style scoped>
-h1 {
+h2 {
   color: #6b9cff;
 }
 div img {

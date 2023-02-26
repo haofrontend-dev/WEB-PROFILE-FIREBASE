@@ -1,65 +1,59 @@
 <template>
-  <table class="table">
-    <thead>
-      <tr>
-        <th v-for="(column, index) in columns" :key="index" scope="col">
-          {{ column.title }}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="(data, index) in allData" :key="index">
-        <td scope="row">{{ index + 1 }}</td>
-        <td><img :src="data.myUrl" alt="" style="width: 80px" /></td>
-        <td>{{ data.namePr }}</td>
-        <td>{{ data.atl }}</td>
-        <td>
-          <div class="form-check form-switch">
-            <input
-              v-model="data.isActive"
-              class="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-              @change="updateImage(data.isActive, data.id)"
-            />
-          </div>
-        </td>
-        <td>
-          <div class="form-check form-switch">
-            <span class="btn-delete" @click="modalShow = !modalShow"
-              ><i class="fa-regular fa-trash-can"></i
-            ></span>
-          </div>
-          <b-modal
-            v-model="modalShow"
-            ref="my-modal"
-            hide-footer
-            title="Delete"
-          >
-            <div class="d-block text-center">
-              <h3>Are you sure you want to delete it?</h3>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th v-for="(column, index) in columns" :key="index" scope="col">
+            {{ column.title }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(data, index) in allData" :key="index">
+          <td scope="row">{{ index + 1 }}</td>
+          <td><img :src="data.myUrl" alt="" style="width: 80px" /></td>
+          <td>{{ data.namePr }}</td>
+          <td>{{ data.atl }}</td>
+          <td>
+            <div class="form-check form-switch">
+              <input
+                v-model="data.isActive"
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                @change="updateImage(data.isActive, data.id)"
+              />
             </div>
-            <div class="d-flex justify-content-end align-items-center">
-              <b-button
-                variant="outline-danger"
-                block
-                @click="modalShow = false"
-                >Close</b-button
-              >
-              <b-button
-                class="ms-3"
-                variant="outline-warning"
-                block
-                @click="deleteImage(data.id)"
-                >Delete</b-button
-              >
+          </td>
+          <td>
+            <div class="form-check form-switch">
+              <span class="btn-delete" @click="showModal(data.id)"
+                ><i class="fa-regular fa-trash-can"></i
+              ></span>
             </div>
-          </b-modal>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <b-modal v-model="modalShow" ref="my-modal" hide-footer title="Delete">
+      <div class="d-block text-center">
+        <h3>Are you sure you want to delete it?</h3>
+      </div>
+      <div class="d-flex justify-content-end align-items-center">
+        <b-button variant="outline-danger" block @click="modalShow = false"
+          >Close</b-button
+        >
+        <b-button
+          class="ms-3"
+          variant="outline-warning"
+          block
+          @click="deleteImage(idItemImage)"
+          >Delete</b-button
+        >
+      </div>
+    </b-modal>
+  </div>
 </template>
 
 <script>
@@ -89,6 +83,7 @@ export default {
       allData: [],
       modalShow: false,
       isShowImage: false,
+      idItemImage: "",
     };
   },
   mounted() {
@@ -151,11 +146,19 @@ export default {
           console.error("Lỗi khi xóa tài liệu: ", error);
         });
     },
+    showModal(docId) {
+      this.modalShow = true;
+      this.idItemImage = docId;
+    },
   },
 };
 </script>
 
 <style scoped>
+.table {
+  max-height: 800px;
+  overflow: hidden;
+}
 .btn-delete {
   display: block;
   width: 30px;

@@ -7,7 +7,7 @@
       @vdropzone-complete="afterComplete"
     ></vue-dropzone>
 
-    <div v-if="images.length > 0" class="row mt-4">
+    <div v-if="images.length > 0" class="row mt-4 box-image">
       <div
         v-for="(image, index) in images"
         :key="index"
@@ -18,29 +18,28 @@
           alt=""
           style="width: 100%; height: 185px; object-fit: cover"
         />
-        <span class="btn-delete" @click="modalShow = !modalShow"
+        <span class="btn-delete" @click="showModal(image.id)"
           ><i class="fa-regular fa-trash-can"></i
         ></span>
-
-        <b-modal v-model="modalShow" ref="my-modal" hide-footer title="Delete">
-          <div class="d-block text-center">
-            <h3>Are you sure you want to delete it?</h3>
-          </div>
-          <div class="d-flex justify-content-end align-items-center">
-            <b-button variant="outline-danger" block @click="modalShow = false"
-              >Close</b-button
-            >
-            <b-button
-              class="ms-3"
-              variant="outline-warning"
-              block
-              @click="deleteImage(image.id)"
-              >Delete</b-button
-            >
-          </div>
-        </b-modal>
       </div>
     </div>
+    <b-modal v-model="modalShow" ref="my-modal" hide-footer title="Delete">
+      <div class="d-block text-center">
+        <h3>Are you sure you want to delete it?</h3>
+      </div>
+      <div class="d-flex justify-content-end align-items-center">
+        <b-button variant="outline-danger" block @click="modalShow = false"
+          >Close</b-button
+        >
+        <b-button
+          class="ms-3"
+          variant="outline-warning"
+          block
+          @click="deleteImage(idItemImage)"
+          >Delete</b-button
+        >
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -68,6 +67,7 @@ export default {
     return {
       description: "",
       images: [],
+      idItemImage: "",
       valueOption: null,
       modalShow: false,
       dropzoneOptions: {
@@ -141,6 +141,7 @@ export default {
     // Delete all the images
     async deleteImage(docId) {
       const db = getFirestore();
+      console.log(docId);
 
       const docRef = doc(db, "images", docId);
       await deleteDoc(docRef)
@@ -164,10 +165,18 @@ export default {
           console.error("Lỗi khi xóa tài liệu: ", error);
         });
     },
+    showModal(docId) {
+      this.modalShow = true;
+      this.idItemImage = docId;
+    },
   },
 };
 </script>
 <style scoped>
+.box-image {
+  max-height: 717px;
+  overflow: auto;
+}
 .item-image {
   position: relative;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="py-5">
-      <h1 class="text-center">Contact me</h1>
+      <h2 class="text-center">Contact me</h2>
       <div class="mt-5">
         <form action="" class="form-wrap mx-auto">
           <div>
@@ -49,7 +49,7 @@ export default {
 };
 </script>
 <style scoped>
-h1 {
+h2 {
   color: #6b9cff;
 }
 .input-text {

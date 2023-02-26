@@ -19,9 +19,11 @@
               <img src="@/assets/image/image-about.png" alt="" class="w-100" />
             </div>
             <div class="col-12 col-lg-7 about-me">
-              <div>
-                <h2 class="text-header">About me</h2>
-                <p class="pe-5">
+              <div
+                class="h-100 d-flex flex-column align-items-center justify-content-center"
+              >
+                <h2 class="text-header text-center text-justify">About me</h2>
+                <p>
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
                   diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                   aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
@@ -201,6 +203,8 @@ export default {
 .section-gp img,
 .section-ai img {
   max-height: 340px;
+  min-height: 340px;
+  object-fit: cover;
 }
 
 .about-me .text-header {
@@ -260,7 +264,12 @@ export default {
 img {
   border-radius: 15px;
 }
-
+.section-ai .slick-slide {
+  overflow: hidden;
+}
+.section-ai .slick-slide:hover img {
+  transform: scale(1.08);
+}
 @media screen and (max-width: 992px) {
   .banner img {
     height: 432px;
@@ -268,6 +277,9 @@ img {
   }
   .image-about img {
     margin-bottom: 0;
+  }
+  .section-gp img {
+    min-height: 170px;
   }
   .send-mail {
     background-color: #2a4dbe;
@@ -278,6 +290,7 @@ img {
   .section-gp img,
   .section-ai img {
     max-height: 200px;
+    height: 100%;
   }
 }
 </style>

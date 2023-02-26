@@ -6,6 +6,7 @@
           <router-link to="/">
             <img src="@/assets/image/logo.png" alt="" class="w-75" />
           </router-link>
+          <p class="text-white d-none d-lg-block">All rights reserved 2023</p>
         </div>
         <div class="col-6 col-lg-3 mb-3 service">
           <div>
@@ -45,7 +46,9 @@
           </div>
         </div>
       </div>
-      <p class="mt-3 h5 text-white">All rights reserved 2023</p>
+      <p class="mt-3 h5 text-white d-block d-lg-none text-footer">
+        All rights reserved 2023
+      </p>
     </div>
   </div>
 </template>
@@ -58,6 +61,11 @@ export default {};
 .footer {
   background-image: linear-gradient(to right, #6b9cff, #aee5ff);
   padding: 90px 0;
+}
+.logo p {
+  margin-top: 26px;
+  padding-top: 8px;
+  border-top: 2px solid white;
 }
 .service ul {
   padding: 0;
@@ -76,9 +84,9 @@ export default {};
   word-wrap: break-word;
 }
 
-.footer-content {
-  padding-bottom: 16px;
-  border-bottom: 1px solid white;
+.text-footer {
+  padding: 16px 0;
+  border-top: 2px solid white;
 }
 @media screen and (max-width: 978px) {
   .footer .logo {
