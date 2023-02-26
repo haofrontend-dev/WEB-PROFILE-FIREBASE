@@ -21,7 +21,7 @@
               />
               <div class="card-body">
                 <p class="">{{ image.namePr }}</p>
-                <p>2022</p>
+                <p>{{ image.year }}</p>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default {
   computed: {
     Images() {
       return this.listCardImages
-        .filter((image) => image.typePr === "beauty")
+        .filter((image) => image.typePr === "beauty" && image.isActive === true)
         .reverse();
     },
   },

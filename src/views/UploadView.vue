@@ -18,9 +18,27 @@
           alt=""
           style="width: 100%; height: 185px; object-fit: cover"
         />
-        <span class="btn-delete" @click="deleteImage(image.id)"
+        <span class="btn-delete" @click="modalShow = !modalShow"
           ><i class="fa-regular fa-trash-can"></i
         ></span>
+
+        <b-modal v-model="modalShow" ref="my-modal" hide-footer title="Delete">
+          <div class="d-block text-center">
+            <h3>Are you sure you want to delete it?</h3>
+          </div>
+          <div class="d-flex justify-content-end align-items-center">
+            <b-button variant="outline-danger" block @click="modalShow = false"
+              >Close</b-button
+            >
+            <b-button
+              class="ms-3"
+              variant="outline-warning"
+              block
+              @click="deleteImage(image.id)"
+              >Delete</b-button
+            >
+          </div>
+        </b-modal>
       </div>
     </div>
   </div>
@@ -51,6 +69,7 @@ export default {
       description: "",
       images: [],
       valueOption: null,
+      modalShow: false,
       dropzoneOptions: {
         url: "https://httpbin.org/post",
         thumbnailWidth: 250,
@@ -124,9 +143,9 @@ export default {
       const db = getFirestore();
 
       const docRef = doc(db, "images", docId);
-
       await deleteDoc(docRef)
         .then(() => {
+          this.modalShow = false;
           console.log("Xóa tài liệu thành công");
           this.$toast.open({
             message: "Delete image is success",

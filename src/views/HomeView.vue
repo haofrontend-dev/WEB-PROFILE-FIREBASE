@@ -70,7 +70,7 @@
             </div>
 
             <div class="send-mail">
-              <div class="row px-5">
+              <div class="row">
                 <div class="col-lg-5 mb-3 mb-lg-0">
                   <span class="text-white">For work please send email to</span>
                 </div>
@@ -160,19 +160,23 @@ export default {
   computed: {
     imagesSlider() {
       return this.listCardImages
-        .filter((image) => image.typePr === "slider")
+        .filter((image) => image.typePr === "slider" && image.isActive === true)
         .reverse()
         .slice(0, 2);
     },
     imagesGpDesign() {
       return this.listCardImages
-        .filter((image) => image.typePr === "gp-design")
+        .filter(
+          (image) => image.typePr === "gp-design" && image.isActive === true
+        )
         .reverse()
         .slice(0, 5);
     },
     imagesAi() {
       return this.listCardImages
-        .filter((image) => image.typePr === "Illustrations")
+        .filter(
+          (image) => image.typePr === "Illustrations" && image.isActive === true
+        )
         .reverse()
         .slice(0, 5);
     },
