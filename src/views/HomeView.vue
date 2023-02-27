@@ -84,7 +84,7 @@
                 <div class="col-lg-7">
                   <div class="d-flex align-items-center gap-3">
                     <input type="text" placeholder="linhchi.nt.158@gmail.com" />
-                    <button>Send</button>
+                    <button class="btn-send">Send</button>
                   </div>
                 </div>
               </div>
@@ -260,7 +260,7 @@ export default {
 .send-mail button {
   border: none;
   outline: none;
-  padding: 8px;
+  padding: 8px 16px;
   border-radius: 8px;
   color: #033333;
   transition: all 0.2s;
