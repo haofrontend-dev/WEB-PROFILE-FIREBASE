@@ -54,4 +54,3 @@ onAuthStateChanged(auth, () => {
     // ...
   }
 });
-// Initialize Firebase

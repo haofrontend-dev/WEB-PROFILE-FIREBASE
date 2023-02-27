@@ -62,6 +62,9 @@ export default {};
   background-image: linear-gradient(to right, #6b9cff, #aee5ff);
   padding: 90px 0;
 }
+.footer-content {
+  padding: 0 40px;
+}
 .logo p {
   margin-top: 26px;
   padding-top: 8px;
@@ -97,6 +100,9 @@ export default {};
   }
   .footer .follow {
     order: 4;
+  }
+  .footer-content {
+    padding: 0;
   }
 }
 </style>

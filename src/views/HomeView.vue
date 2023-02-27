@@ -11,10 +11,15 @@
         <img src="@/assets/image/slider.png" alt="" />
       </div>
     </slick-slider>
-    <div :style="{ backgroundImage: `url(${bgSkill})` }">
+    <div
+      :style="{
+        backgroundImage: `url(${bgSkill})`,
+        backgroundRepeat: 'no-repeat',
+      }"
+    >
       <div class="bg-white">
         <div class="container pt-5">
-          <div class="row">
+          <div class="row about-wrap">
             <div class="co-12 col-lg-5 image-about">
               <img src="@/assets/image/image-about.png" alt="" class="w-100" />
             </div>
@@ -172,7 +177,7 @@ export default {
           (image) => image.typePr === "gp-design" && image.isActive === true
         )
         .reverse()
-        .slice(0, 5);
+        .slice(0, 6);
     },
     imagesAi() {
       return this.listCardImages
@@ -195,6 +200,10 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0 0 90px;
+}
+.about-wrap,
+.section-skill {
+  padding: 0 40px;
 }
 .image-about img {
   width: 360px;
@@ -291,6 +300,10 @@ img {
   .section-ai img {
     max-height: 200px;
     height: 100%;
+  }
+  .about-wrap,
+  .section-skill {
+    padding: 0;
   }
 }
 </style>
