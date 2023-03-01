@@ -12,16 +12,16 @@
             class="col-6 col-lg-4 mb-4"
             @click="showPopupImage(image.myUrl)"
           >
-            <div class="card shadow-lg" style="width: 100%">
+            <div class="card" style="width: 100%">
               <img
                 :src="image.myUrl"
                 class="card-img-top"
                 :alt="image.alt"
                 ref="imageCard"
               />
-              <div class="card-body">
-                <p class="">{{ image.namePr }}</p>
-                <p>{{ image.year }}</p>
+              <div class="card-body py-2">
+                <p class="text-uppercase">{{ image.namePr }}</p>
+                <p>{{ formaDate(image.year) }}</p>
               </div>
             </div>
           </div>
@@ -49,6 +49,11 @@ export default {
       isPopup: false,
       imagePopup: "",
       listCardImages: [],
+      options: {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      },
     };
   },
   mounted() {
@@ -66,6 +71,15 @@ export default {
       querySnapshot.forEach((doc) => {
         this.listCardImages.push(doc.data());
       });
+    },
+    formaDate(date) {
+      const newDate = new Date(date);
+      if (date) {
+        const dateFormat = newDate.toLocaleDateString("en-US", this.options);
+        return dateFormat;
+      } else {
+        return "";
+      }
     },
   },
   computed: {
@@ -93,8 +107,11 @@ p {
 .card:hover {
   transform: translateY(-4px);
   cursor: pointer;
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
 }
-
+.card-img-top {
+  border-radius: 20px;
+}
 .popup-image {
   position: fixed;
   top: 0;
@@ -126,6 +143,9 @@ p {
 @media screen and (max-width: 768px) {
   .popup-image img {
     width: 95%;
+  }
+  .card-img-top {
+    height: 160px;
   }
 }
 </style>

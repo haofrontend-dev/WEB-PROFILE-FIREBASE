@@ -7,7 +7,7 @@ const sendEmail = async (toEmail, subject, message) => {
 
   const data = {
     personalizations: [{ to: [{ email: toEmail }] }],
-    from: { email: "haonguyen1102000@gmail.com" },
+    from: { email: "huy114ym@gmail.com" },
     subject,
     content: [{ type: "text/plain", value: message }],
   };

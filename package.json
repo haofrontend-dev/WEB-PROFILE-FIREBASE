@@ -16,8 +16,6 @@
     "core-js": "^3.8.3",
     "emailjs-com": "^3.2.0",
     "firebase": "^9.17.1",
-    "firebase-admin": "^11.5.0",
-    "firebase-functions": "^3.14.1",
     "jquery": "^3.6.3",
     "uuid": "^9.0.0",
     "vue": "^2.7.14",

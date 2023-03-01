@@ -203,7 +203,7 @@ export default {
 }
 .about-wrap,
 .section-skill {
-  padding: 0 40px;
+  padding: 0 80px;
 }
 .image-about img {
   width: 360px;

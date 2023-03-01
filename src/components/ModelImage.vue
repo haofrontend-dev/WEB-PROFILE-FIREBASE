@@ -72,6 +72,18 @@
                     />
                   </div>
                   <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label"
+                      >Date</label
+                    >
+                    <input
+                      v-model="dateProject"
+                      type="date"
+                      class="form-control"
+                      id="exampleFormControlInput1"
+                      placeholder="Name Card"
+                    />
+                  </div>
+                  <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label"
                       >Alt Image</label
                     >
@@ -135,6 +147,7 @@ export default {
   data() {
     return {
       nameProject: "",
+      dateProject: "",
       altImage: "",
       valueSelect: "general",
       selectItem: null,
@@ -162,6 +175,7 @@ export default {
           atl: this.altImage,
           typePr: this.valueSelect,
           namePr: this.nameProject,
+          year: this.dateProject,
           isActive: true,
         };
 
