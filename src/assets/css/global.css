@@ -30,6 +30,13 @@ h2 {
 .slick-list {
   height: 100%;
 }
+.slider-main .slick-slide {
+  margin: 0 !important;
+  padding: 0;
+}
+.slider-main .slick-slide img {
+  border-radius: 0;
+}
 .slick-initialized .slick-slide {
   margin: 0 12px;
 }

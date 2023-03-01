@@ -129,7 +129,7 @@ nav a {
   text-align: center;
   font-weight: bold;
   color: #033333;
-  margin: 0 4px;
+  margin-right: 4px;
   padding: 12px;
   background-color: #aee5ff;
   text-decoration: none;

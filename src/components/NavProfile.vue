@@ -60,8 +60,8 @@ export default {};
   align-items: center;
 
   height: inherit;
-  width: 180px;
   font-weight: 600;
+  padding: 0 40px;
   font-size: 16px;
   border-radius: 16px;
   text-decoration: none;

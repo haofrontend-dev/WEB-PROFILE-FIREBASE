@@ -1,11 +1,16 @@
 <template>
   <div class="home">
-    <slick-slider v-if="imagesSlider.length > 0" :options="optionBanner">
-      <div v-for="(image, index) in imagesSlider" :key="index" class="banner">
-        <img :src="image.myUrl" alt="" />
-      </div>
-    </slick-slider>
-
+    <div>
+      <slick-slider
+        v-if="imagesSlider.length > 0"
+        :options="optionBanner"
+        class="container p-0 slider-main"
+      >
+        <div v-for="(image, index) in imagesSlider" :key="index" class="banner">
+          <img :src="image.myUrl" alt="" />
+        </div>
+      </slick-slider>
+    </div>
     <div
       :style="{
         backgroundImage: `url(${bgSkill})`,
