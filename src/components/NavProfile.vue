@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav-links d-none d-lg-block container">
+  <nav class="nav-links d-none d-lg-block">
     <ul class="nav-menu">
       <li class="nav-item">
         <router-link to="/projects" class="nav-item__link">General</router-link>
@@ -41,6 +41,7 @@ export default {};
   height: 56px;
   display: flex;
   align-items: center;
+  border-radius: 16px;
 }
 .nav-links ul {
   padding: 0;
