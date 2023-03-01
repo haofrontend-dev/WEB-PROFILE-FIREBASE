@@ -210,8 +210,8 @@ export default {
 }
 .section-gp img,
 .section-ai img {
-  max-height: 250px;
-  min-height: 250px;
+  max-height: 200px;
+  min-height: 200px;
   object-fit: cover;
   transition: all 0.5s;
 }
@@ -304,6 +304,7 @@ img {
   .section-ai img {
     max-height: 200px;
     height: 100%;
+    min-height: 200px;
   }
   .about-wrap,
   .section-skill {
