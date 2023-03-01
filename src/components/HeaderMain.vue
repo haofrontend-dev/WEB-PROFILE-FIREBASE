@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <header class="text-lg-center fixed-top w-100">
       <div
         class="navbar navbar-expand-lg d-lg-block justify-content-between h-100 navbar-mobile"

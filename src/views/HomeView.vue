@@ -10,6 +10,7 @@
       :style="{
         backgroundImage: `url(${bgSkill})`,
         backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
       }"
     >
       <div class="bg-white">
@@ -197,18 +198,15 @@ export default {
   background-size: cover;
   padding: 0 0 90px;
 }
-.about-wrap,
-.section-skill {
-  padding: 0 80px;
-}
+
 .image-about img {
   width: 360px;
   margin-bottom: -65px;
 }
 .section-gp img,
 .section-ai img {
-  max-height: 340px;
-  min-height: 340px;
+  max-height: 250px;
+  min-height: 250px;
   object-fit: cover;
 }
 

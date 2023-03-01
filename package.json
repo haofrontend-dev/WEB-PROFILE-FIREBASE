@@ -17,6 +17,8 @@
     "emailjs-com": "^3.2.0",
     "firebase": "^9.17.1",
     "jquery": "^3.6.3",
+    "sendmail": "^1.6.1",
+    "sendmail-js": "^0.2.0",
     "uuid": "^9.0.0",
     "vue": "^2.7.14",
     "vue-router": "^3.5.1",

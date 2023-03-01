@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav-links d-none d-lg-block">
+  <nav class="nav-links d-none d-lg-block container">
     <ul class="nav-menu">
       <li class="nav-item">
         <router-link to="/projects" class="nav-item__link">General</router-link>
