@@ -208,6 +208,7 @@ export default {
   max-height: 250px;
   min-height: 250px;
   object-fit: cover;
+  transition: all 0.5s;
 }
 
 .about-me .text-header {
@@ -270,6 +271,10 @@ img {
 .section-ai .slick-slide {
   overflow: hidden;
 }
+.section-gp img:hover {
+  transform: scale(1.08);
+}
+
 .section-ai .slick-slide:hover img {
   transform: scale(1.08);
 }
