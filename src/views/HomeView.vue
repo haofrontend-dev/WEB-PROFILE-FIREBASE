@@ -1,16 +1,11 @@
 <template>
   <div class="home">
-    <slick-slider :options="optionBanner">
-      <div class="banner">
-        <img src="@/assets/image/slider.png" alt="" />
-      </div>
-      <div class="banner">
-        <img src="@/assets/image/slider.png" alt="" />
-      </div>
-      <div class="banner">
-        <img src="@/assets/image/slider.png" alt="" />
+    <slick-slider v-if="imagesSlider.length > 0" :options="optionBanner">
+      <div v-for="(image, index) in imagesSlider" :key="index" class="banner">
+        <img :src="image.myUrl" alt="" />
       </div>
     </slick-slider>
+
     <div
       :style="{
         backgroundImage: `url(${bgSkill})`,
@@ -162,6 +157,7 @@ export default {
       querySnapshot.forEach((doc) => {
         this.listCardImages.push(doc.data());
       });
+      console.log(this.listCardImages);
     },
   },
   computed: {
@@ -193,7 +189,7 @@ export default {
 <style scoped>
 .banner img {
   width: 100%;
-  height: 100%;
+  height: 620px;
   object-fit: cover;
 }
 .home {
