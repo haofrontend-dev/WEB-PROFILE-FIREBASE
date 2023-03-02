@@ -4,6 +4,22 @@
       <div class="list-btn">
         <nav-profile></nav-profile>
       </div>
+      <nav
+        style="--bs-breadcrumb-divider: '>'"
+        aria-label="breadcrumb"
+        class="container d-block d-lg-none"
+      >
+        <ol class="breadcrumb fw-bold">
+          <li class="breadcrumb-item">
+            <router-link to="#" class="text-decoration-none"
+              >Projects</router-link
+            >
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Motion & Illustration
+          </li>
+        </ol>
+      </nav>
       <div class="container mt-5">
         <div v-if="Images.length" class="row">
           <div
@@ -140,9 +156,6 @@ p {
 @media screen and (max-width: 768px) {
   .popup-image img {
     width: 95%;
-  }
-  .card-img-top {
-    height: 160px;
   }
 }
 </style>

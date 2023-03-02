@@ -1,34 +1,40 @@
 <template>
-  <nav class="nav-links d-none d-lg-block container p-0">
-    <ul class="nav-menu">
-      <li class="nav-item">
-        <router-link to="/projects" class="nav-item__link">General</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/projects/beauty" class="nav-item__link"
-          >Beauty & FMCG</router-link
-        >
-      </li>
-      <li class="nav-item">
-        <router-link to="/projects/f&b" class="nav-item__link">F&B</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/projects/key-visual" class="nav-item__link"
-          >Key visual</router-link
-        >
-      </li>
-      <li class="nav-item">
-        <router-link to="/projects/branding" class="nav-item__link"
-          >Branding</router-link
-        >
-      </li>
-      <li class="nav-item">
-        <router-link to="/projects/motion-ai" class="nav-item__link"
-          >Motion & Illustration</router-link
-        >
-      </li>
-    </ul>
-  </nav>
+  <div>
+    <nav class="nav-links d-none d-lg-block container p-0">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <router-link to="/projects" class="nav-item__link"
+            >General</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link to="/projects/beauty" class="nav-item__link"
+            >Beauty & FMCG</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link to="/projects/f&b" class="nav-item__link"
+            >F&B</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link to="/projects/key-visual" class="nav-item__link"
+            >Key visual</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link to="/projects/branding" class="nav-item__link"
+            >Branding</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link to="/projects/motion-ai" class="nav-item__link"
+            >Motion & Illustration</router-link
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
 
 <script>
