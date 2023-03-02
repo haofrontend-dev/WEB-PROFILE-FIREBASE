@@ -61,7 +61,7 @@ export default {};
 
   height: inherit;
   font-weight: 600;
-  padding: 0 40px;
+  padding: 0 30px;
   font-size: 16px;
   border-radius: 16px;
   text-decoration: none;

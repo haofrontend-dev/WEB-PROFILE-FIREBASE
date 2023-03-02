@@ -291,9 +291,6 @@ img {
   .image-about img {
     margin-bottom: 0;
   }
-  .section-gp img {
-    min-height: 170px;
-  }
   .send-mail {
     background-color: #2a4dbe;
     padding: 20px;
@@ -309,6 +306,14 @@ img {
   .about-wrap,
   .section-skill {
     padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section-gp img,
+  .section-ai img {
+    max-height: 140px;
+    height: 100%;
+    min-height: 140px;
   }
 }
 </style>
