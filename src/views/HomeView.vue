@@ -309,8 +309,7 @@ img {
   }
 }
 @media screen and (max-width: 768px) {
-  .section-gp img,
-  .section-ai img {
+  .section-gp img {
     max-height: 140px;
     height: 100%;
     min-height: 140px;
