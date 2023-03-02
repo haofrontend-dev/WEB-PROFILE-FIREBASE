@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div>
+    <div style="background-color: #c43122">
       <slick-slider
         v-if="imagesSlider.length > 0"
         :options="optionBanner"
@@ -211,7 +211,7 @@ export default {
 .section-gp img,
 .section-ai img {
   max-height: 200px;
-  min-height: 200px;
+  min-height: 230px;
   object-fit: cover;
   transition: all 0.5s;
 }
