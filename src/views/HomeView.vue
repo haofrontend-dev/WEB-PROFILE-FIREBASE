@@ -236,7 +236,7 @@ export default {
   margin-bottom: -138px;
 }
 .send-mail span {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
 .send-mail input {
