@@ -124,13 +124,12 @@ nav {
 }
 
 nav a {
-  width: 220px;
   display: inline-block;
   text-align: center;
   font-weight: bold;
   color: #033333;
   margin-right: 4px;
-  padding: 12px;
+  padding: 12px 50px;
   background-color: #aee5ff;
   text-decoration: none;
   transition: all 0.2s ease-in;

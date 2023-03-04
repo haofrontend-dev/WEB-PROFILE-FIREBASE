@@ -95,7 +95,7 @@ h2 {
 }
 .card-img-top {
   max-height: 230px;
-  height: 300px;
+  height: 230px;
   object-fit: cover;
 }
 .text-justify {
@@ -104,9 +104,29 @@ h2 {
 .breadcrumb-item + .breadcrumb-item::before {
   color: #5aa6f1;
 }
+@media screen and (min-width: 1920px) {
+  .container {
+    max-width: 1240px !important;
+  }
+  .card-img-top {
+    max-height: 275px;
+    min-height: 275px;
+    object-fit: cover;
+  }
+}
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 1000px;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .container {
+    max-width: 800px;
+  }
+  .card-img-top {
+    max-height: 190px;
+    min-height: 190px;
+    object-fit: cover;
   }
 }
 @media screen and (max-width: 768px) {

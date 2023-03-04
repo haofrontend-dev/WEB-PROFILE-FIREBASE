@@ -163,7 +163,6 @@ export default {
       querySnapshot.forEach((doc) => {
         this.listCardImages.push(doc.data());
       });
-      console.log(this.listCardImages);
     },
   },
   computed: {
@@ -193,9 +192,11 @@ export default {
 };
 </script>
 <style scoped>
+.banner {
+}
 .banner img {
   width: 100%;
-  height: 620px;
+  height: 500px;
   object-fit: cover;
 }
 .home {
@@ -211,7 +212,7 @@ export default {
 .section-gp img,
 .section-ai img {
   max-height: 200px;
-  min-height: 230px;
+  min-height: 200px;
   object-fit: cover;
   transition: all 0.5s;
 }
@@ -282,6 +283,16 @@ img {
 
 .section-ai .slick-slide:hover img {
   transform: scale(1.08);
+}
+
+@media screen and (min-width: 1920px) {
+  .section-gp img,
+  .section-ai img {
+    max-height: 290px;
+    min-height: 290px;
+    object-fit: cover;
+    transition: all 0.5s;
+  }
 }
 @media screen and (max-width: 992px) {
   .banner img {

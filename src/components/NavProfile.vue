@@ -77,4 +77,10 @@ ul li .nav-item__link.router-link-exact-active.router-link-active {
   background-color: #6b9cff;
   color: white;
 }
+
+@media screen and (max-width: 1250px) {
+  .nav-links ul li .nav-item__link {
+    padding: 0 18px;
+  }
+}
 </style>
