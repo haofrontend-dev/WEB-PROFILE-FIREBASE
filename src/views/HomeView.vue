@@ -1,15 +1,13 @@
 <template>
   <div class="home">
     <div style="background-color: #c43122">
-      <slick-slider
-        v-if="imagesSlider.length > 0"
-        :options="optionBanner"
-        class="container p-0 slider-main"
+      <div
+        v-for="(image, index) in imagesSlider"
+        :key="index"
+        class="banner container p-0"
       >
-        <div v-for="(image, index) in imagesSlider" :key="index" class="banner">
-          <img :src="image.myUrl" alt="" />
-        </div>
-      </slick-slider>
+        <img style="border-radius: 0px" :src="image.myUrl" alt="" />
+      </div>
     </div>
     <div
       :style="{
@@ -41,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="section-skill mb-5 py-5">
+      <div class="section-skill py-5">
         <div class="container">
           <div class="section-skill">
             <div class="mt-5 section-gp">
@@ -170,7 +168,7 @@ export default {
       return this.listCardImages
         .filter((image) => image.typePr === "slider" && image.isActive === true)
         .reverse()
-        .slice(0, 2);
+        .slice(0, 1);
     },
     imagesGpDesign() {
       return this.listCardImages
@@ -196,13 +194,12 @@ export default {
 }
 .banner img {
   width: 100%;
-  height: 500px;
+  height: 410px;
   object-fit: cover;
 }
 .home {
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 0 0 90px;
 }
 
 .image-about img {
@@ -234,6 +231,8 @@ export default {
   padding: 40px;
   border-radius: 24px;
   margin-bottom: -138px;
+  z-index: 10;
+  position: relative;
 }
 .send-mail span {
   font-size: 16px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="footer mt-5">
+  <div class="footer">
     <div class="container">
       <div class="row footer-content">
         <div class="col-6 col-lg-3 mb-3 logo">
@@ -60,7 +60,7 @@ export default {};
 <style scoped>
 .footer {
   background-image: linear-gradient(to right, #6b9cff, #aee5ff);
-  padding: 90px 0;
+  padding: 120px 0 90px;
 }
 .footer-content {
   padding: 0 40px;
