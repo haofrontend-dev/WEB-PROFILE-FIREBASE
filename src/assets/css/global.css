@@ -94,8 +94,8 @@ h2 {
   overflow: hidden;
 }
 .card-img-top {
-  max-height: 230px;
-  height: 230px;
+  max-height: 243px;
+  height: 243px;
   object-fit: cover;
 }
 .text-justify {
@@ -109,8 +109,8 @@ h2 {
     max-width: 1240px !important;
   }
   .card-img-top {
-    max-height: 275px;
-    min-height: 275px;
+    max-height: 290px;
+    min-height: 290px;
     object-fit: cover;
   }
 }
@@ -124,9 +124,14 @@ h2 {
     max-width: 800px;
   }
   .card-img-top {
-    max-height: 190px;
-    min-height: 190px;
+    max-height: 185px;
+    min-height: 185px;
     object-fit: cover;
+  }
+}
+@media screen and (max-width: 992px) {
+  .card-img-top {
+    height: 265px;
   }
 }
 @media screen and (max-width: 768px) {

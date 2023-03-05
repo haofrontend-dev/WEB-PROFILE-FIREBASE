@@ -120,12 +120,21 @@ export default {
           "<button type='button' class='slick-next pull-right'><i class='fa-solid fa-arrow-right'></i></button>",
         responsive: [
           {
+            breakpoint: 929,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "40px",
+              slidesToShow: 2,
+            },
+          },
+          {
             breakpoint: 768,
             settings: {
               arrows: false,
               centerMode: true,
               centerPadding: "40px",
-              slidesToShow: 1,
+              slidesToShow: 2,
             },
           },
           {
@@ -134,7 +143,7 @@ export default {
               arrows: false,
               centerMode: true,
               centerPadding: "40px",
-              slidesToShow: 1,
+              slidesToShow: 2,
             },
           },
         ],
@@ -208,8 +217,8 @@ export default {
 }
 .section-gp img,
 .section-ai img {
-  max-height: 200px;
-  min-height: 200px;
+  max-height: 230px;
+  min-height: 230px;
   object-fit: cover;
   transition: all 0.5s;
 }
@@ -293,6 +302,15 @@ img {
     transition: all 0.5s;
   }
 }
+@media screen and (min-width: 1250px) and (max-width: 1439px) {
+  .section-gp img,
+  .section-ai img {
+    max-height: 185px;
+    min-height: 185px;
+    object-fit: cover;
+    transition: all 0.5s;
+  }
+}
 @media screen and (max-width: 992px) {
   .banner img {
     height: 432px;
@@ -309,9 +327,9 @@ img {
   }
   .section-gp img,
   .section-ai img {
-    max-height: 200px;
+    max-height: 265px;
     height: 100%;
-    min-height: 200px;
+    min-height: 265px;
   }
   .about-wrap,
   .section-skill {
