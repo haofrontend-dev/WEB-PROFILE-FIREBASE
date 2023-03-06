@@ -89,15 +89,19 @@ h2 {
 .cursor-not-allowed {
   cursor: not-allowed;
 }
+.project-card {
+  margin-top: 40px;
+}
 .card {
-  border-radius: 20px;
   overflow: hidden;
 }
 .card-img-top {
   max-height: 243px;
   height: 243px;
   object-fit: cover;
+  border-radius: 15px;
 }
+
 .text-justify {
   text-align: justify;
 }
@@ -130,11 +134,19 @@ h2 {
   }
 }
 @media screen and (max-width: 992px) {
+  .project-card {
+    margin-top: 0;
+  }
   .card-img-top {
     height: 265px;
   }
 }
 @media screen and (max-width: 768px) {
+  .card-img-top {
+    height: 220px;
+  }
+}
+@media screen and (max-width: 480px) {
   .card-img-top {
     height: 130px;
   }

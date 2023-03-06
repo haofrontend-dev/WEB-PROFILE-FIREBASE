@@ -3,7 +3,7 @@
     <div class="py-5">
       <h2 class="text-center">About me</h2>
       <div class="mt-5">
-        <img src="@/assets/image/img-about-page.jpg" alt="" class="img-fluid" />
+        <img src="@/assets/image/img-about-page.png" alt="" class="img-fluid" />
       </div>
     </div>
   </div>

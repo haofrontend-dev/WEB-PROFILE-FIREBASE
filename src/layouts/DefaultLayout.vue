@@ -64,6 +64,7 @@ export default {
   position: fixed;
   right: 24px;
   bottom: 16px;
+  z-index: 999;
 }
 .btn-up button {
   outline: none;

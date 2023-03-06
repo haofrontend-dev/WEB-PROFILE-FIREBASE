@@ -25,8 +25,8 @@
             <div>
               <span class="text-white fw-bold h5">Contact</span>
               <ul>
-                <li>T: +84911354264</li>
-                <li>E: linhchi.nt.158@gmail.com</li>
+                <li>T:<span class="ms-2">+84911354264</span></li>
+                <li>E:<span class="ms-2">linhchi.nt.158@gmail.com</span></li>
               </ul>
             </div>
             <div>
@@ -77,7 +77,7 @@ export default {};
   color: #fff;
 }
 .service ul li {
-  padding: 4px;
+  padding: 4px 0;
 }
 .service img {
   width: 35px;

@@ -119,7 +119,7 @@ header {
   margin-left: 16px;
 }
 nav {
-  margin-top: 80px;
+  margin-top: 116px;
   padding: 12px 0 0;
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div style="background-color: #c43122">
+    <div style="background-color: #c43122" class="d-none d-lg-block">
       <div
         v-for="(image, index) in imagesSlider"
         :key="index"
@@ -10,13 +10,25 @@
       </div>
     </div>
     <div
+      style="background-color: #c43122"
+      class="d-block d-lg-none mt-lg-4 banner-mobile"
+    >
+      <div class="banner container p-0">
+        <img
+          style="border-radius: 0px"
+          src="@/assets/image/banner-mobile.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <div
       :style="{
         backgroundImage: `url(${bgSkill})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }"
     >
-      <div class="bg-white">
+      <div class="bg-white pb-4">
         <div class="container pt-5">
           <div class="row about-wrap">
             <div class="co-12 col-lg-5 image-about">
@@ -39,7 +51,7 @@
           </div>
         </div>
       </div>
-      <div class="section-skill py-5">
+      <div class="pt-5">
         <div class="container">
           <div class="section-skill">
             <div class="mt-5 section-gp">
@@ -74,17 +86,16 @@
                 </slick-slider>
               </div>
             </div>
-
-            <div class="send-mail">
-              <div class="row">
-                <div class="col-lg-5 mb-3 mb-lg-0">
-                  <span class="text-white">For work please send email to</span>
-                </div>
-                <div class="col-lg-7">
-                  <div class="d-flex align-items-center gap-3">
-                    <input type="text" placeholder="linhchi.nt.158@gmail.com" />
-                    <button class="btn-send">Send</button>
-                  </div>
+          </div>
+          <div class="send-mail">
+            <div class="row">
+              <div class="col-lg-4 mb-3 mb-lg-0">
+                <span class="text-white">For work please send email to</span>
+              </div>
+              <div class="col-lg-8">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="text" placeholder="linhchi.nt.158@gmail.com" />
+                  <button class="btn-send">Send</button>
                 </div>
               </div>
             </div>
@@ -134,7 +145,7 @@ export default {
               arrows: false,
               centerMode: true,
               centerPadding: "40px",
-              slidesToShow: 2,
+              slidesToShow: 1,
             },
           },
           {
@@ -143,7 +154,7 @@ export default {
               arrows: false,
               centerMode: true,
               centerPadding: "40px",
-              slidesToShow: 2,
+              slidesToShow: 1,
             },
           },
         ],
@@ -206,6 +217,9 @@ export default {
   height: 410px;
   object-fit: cover;
 }
+.banner-mobile .banner img {
+  height: 100%;
+}
 .home {
   background-repeat: no-repeat;
   background-size: cover;
@@ -235,11 +249,14 @@ export default {
   padding: 10px;
 }
 
+.section-skill {
+  padding-bottom: 112px;
+}
 .send-mail {
   background-color: #2a4dbe;
   padding: 40px;
   border-radius: 24px;
-  margin-bottom: -138px;
+  margin-bottom: -52px;
   z-index: 10;
   position: relative;
 }
@@ -269,7 +286,7 @@ export default {
 .send-mail button {
   border: none;
   outline: none;
-  padding: 8px 16px;
+  padding: 8px 26px;
   border-radius: 8px;
   color: #033333;
   transition: all 0.2s;
@@ -311,7 +328,7 @@ img {
     transition: all 0.5s;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 769px) and (max-width: 992px) {
   .banner img {
     height: 432px;
     object-fit: cover;
@@ -319,12 +336,7 @@ img {
   .image-about img {
     margin-bottom: 0;
   }
-  .send-mail {
-    background-color: #2a4dbe;
-    padding: 20px;
-    border-radius: 24px;
-    margin-bottom: -138px;
-  }
+
   .section-gp img,
   .section-ai img {
     max-height: 265px;
@@ -333,14 +345,43 @@ img {
   }
   .about-wrap,
   .section-skill {
-    padding: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .section-skill {
+    padding-bottom: 80px;
+  }
+  .send-mail {
+    background-color: #2a4dbe;
+    padding: 20px;
+    border-radius: 24px;
+    margin-bottom: -52px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .image-about img {
+    margin-bottom: 0;
+  }
+  .section-gp img {
+    max-height: 240px;
+    height: 240px;
+    min-height: 240px;
+  }
+  .send-mail {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .image-about img {
+    margin-bottom: 0;
+  }
   .section-gp img {
     max-height: 140px;
     height: 100%;
     min-height: 140px;
+  }
+  .send-mail {
+    padding: 20px;
   }
 }
 </style>

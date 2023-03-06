@@ -18,12 +18,12 @@
           <li class="breadcrumb-item active" aria-current="page">F&B</li>
         </ol>
       </nav>
-      <div class="container mt-5">
-        <div v-if="Images.length" class="row">
+      <div class="container project-card project-card">
+        <div v-if="Images.length" class="row gx-3">
           <div
             v-for="(image, index) in Images"
             :key="index"
-            class="col-6 col-lg-4 mb-4"
+            class="col-6 col-lg-4 mb-2"
             @click="showPopupImage(image.myUrl)"
           >
             <div class="card" style="width: 100%">
@@ -117,9 +117,6 @@ p {
   transform: translateY(-4px);
   cursor: pointer;
   box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
-}
-.card-img-top {
-  border-radius: 20px;
 }
 .popup-image {
   position: fixed;

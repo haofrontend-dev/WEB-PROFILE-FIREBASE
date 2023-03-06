@@ -39,7 +39,7 @@
               ></b-form-textarea>
             </div>
             <div class="d-grid">
-              <b-button type="submit" variant="info" class="mt-4 btn-send"
+              <b-button style="" variant="info" class="mt-4 btn-send"
                 >Send</b-button
               >
             </div>
@@ -119,7 +119,14 @@ h2 {
   border: 1px solid #6b9cff;
 }
 .btn-send {
-  color: #fff;
+  color: #033333;
+  transition: 0.5s;
+  font-weight: 600;
+  background-color: #aee5ff;
+  border: none;
+}
+.btn-send:hover {
+  opacity: 0.9;
 }
 .form-wrap {
   width: 70%;

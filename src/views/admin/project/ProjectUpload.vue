@@ -41,6 +41,7 @@ export default {
         { title: "Image", type: "image" },
         { title: "Name image", type: "name" },
         { title: "Alt Image", type: "alt" },
+        { title: "Type", type: "type" },
         { title: "Select", type: "select" },
       ],
       selectOptions: [

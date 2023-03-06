@@ -14,6 +14,7 @@
           <td><img :src="data.myUrl" alt="" style="width: 80px" /></td>
           <td>{{ data.namePr }}</td>
           <td>{{ data.atl }}</td>
+          <td>{{ data.typePr }}</td>
           <td>
             <div class="form-check form-switch">
               <input
