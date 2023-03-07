@@ -135,7 +135,6 @@ export default {
             settings: {
               arrows: false,
               centerMode: true,
-              centerPadding: "40px",
               slidesToShow: 2,
             },
           },
@@ -143,18 +142,16 @@ export default {
             breakpoint: 768,
             settings: {
               arrows: false,
-              centerMode: true,
-              centerPadding: "40px",
-              slidesToShow: 1,
+
+              slidesToShow: 2,
             },
           },
           {
             breakpoint: 480,
             settings: {
               arrows: false,
-              centerMode: true,
-              centerPadding: "40px",
-              slidesToShow: 1,
+
+              slidesToShow: 2,
             },
           },
         ],
@@ -367,6 +364,7 @@ img {
     height: 240px;
     min-height: 240px;
   }
+
   .send-mail {
     padding: 20px;
   }
@@ -375,10 +373,19 @@ img {
   .image-about img {
     margin-bottom: 0;
   }
+  .section-skill {
+    padding-bottom: 56px;
+  }
   .section-gp img {
     max-height: 140px;
     height: 100%;
     min-height: 140px;
+  }
+  .section-ai img {
+    max-height: 130px;
+    min-height: 130px;
+    object-fit: cover;
+    transition: all 0.5s;
   }
   .send-mail {
     padding: 20px;

@@ -2,13 +2,13 @@
   <div class="footer">
     <div class="container">
       <div class="row footer-content">
-        <div class="col-6 col-lg-3 mb-3 logo">
+        <div class="col-5 col-lg-3 mb-3 logo">
           <router-link to="/">
             <img src="@/assets/image/logo.png" alt="" class="w-75" />
           </router-link>
           <p class="text-white d-none d-lg-block">All rights reserved 2023</p>
         </div>
-        <div class="col-6 col-lg-3 mb-3 service">
+        <div class="col-5 col-lg-3 mb-3 service">
           <div>
             <span class="text-white fw-bold h5">Services</span>
             <ul>
@@ -20,7 +20,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-6 col-lg-3 mb-3 service contact">
+        <div class="col-7 col-lg-4 mb-3 service contact">
           <div>
             <div>
               <span class="text-white fw-bold h5">Contact</span>
@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-        <div class="col-6 col-lg-3 mb-3 service follow">
+        <div class="col-7 col-lg-2 mb-3 service follow">
           <div>
             <span class="text-white fw-bold h5">Follow me</span>
             <ul>
@@ -103,6 +103,11 @@ export default {};
   }
   .footer-content {
     padding: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer-content ul li {
+    font-size: 13px;
   }
 }
 </style>

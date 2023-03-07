@@ -61,7 +61,7 @@ export default {
     return {
       isOpenMenu: false,
       mobileMenus: [
-        { name: "Main Page", path: "/" },
+        { name: "Home", path: "/" },
         { name: "Profile", path: "/profile" },
         {
           name: "Projects",
