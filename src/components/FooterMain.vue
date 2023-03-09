@@ -15,8 +15,6 @@
               <li>Graphic Design</li>
               <li>Motion Graphic</li>
               <li>Illustration</li>
-              <li>Graphic Design</li>
-              <li>Graphic Design</li>
             </ul>
           </div>
         </div>

@@ -74,7 +74,7 @@ export default {
         url: "https://httpbin.org/post",
         thumbnailWidth: 250,
         thumbnailHeight: 250,
-        maxFilesize: 0.5,
+        maxFilesize: 2,
         addRemoveLinks: false,
         acceptedFiles: ".jpg, jpeg, .png, .mp4",
       },
