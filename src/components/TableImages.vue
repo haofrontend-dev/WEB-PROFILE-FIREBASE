@@ -11,7 +11,13 @@
       <tbody>
         <tr v-for="(data, index) in allData" :key="index">
           <td scope="row">{{ index + 1 }}</td>
-          <td><img :src="data.myUrl" alt="" style="width: 80px" /></td>
+          <td>
+            <img
+              :src="data.myUrl"
+              alt=""
+              style="width: 80px; max-height: 64px; object-fit: contain"
+            />
+          </td>
           <td>{{ data.namePr }}</td>
           <td>{{ data.atl }}</td>
           <td>{{ data.typePr }}</td>

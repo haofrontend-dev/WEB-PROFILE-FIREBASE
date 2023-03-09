@@ -126,9 +126,10 @@ p {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  height: 100%;
   width: 100%;
   z-index: 100;
+  height: 100vh;
+  overflow-y: auto;
 }
 .popup-image span {
   position: absolute;

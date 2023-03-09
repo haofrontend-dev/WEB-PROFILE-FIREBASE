@@ -34,6 +34,7 @@
                     style="
                       width: 100%;
                       height: 100%;
+                      max-height: 135px;
                       object-fit: cover;
                       margin: 0;
                     "
@@ -55,7 +56,17 @@
                 <h3 class="attach-title">ATTACHMENT DETAILS</h3>
                 <div class="attach-info text-end">
                   <div class="attach-image">
-                    <img :src="srcActtacImage" alt="" />
+                    <img
+                      :src="srcActtacImage"
+                      alt=""
+                      style="
+                        width: 100%;
+                        height: 100%;
+                        max-height: 120px;
+                        object-fit: cover;
+                        margin: 0;
+                      "
+                    />
                   </div>
                 </div>
                 <div class="mb-3">

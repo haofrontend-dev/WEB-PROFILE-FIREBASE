@@ -63,6 +63,7 @@ export default {};
 .footer-content {
   padding: 0 40px;
 }
+
 .logo p {
   margin-top: 26px;
   padding-top: 8px;
