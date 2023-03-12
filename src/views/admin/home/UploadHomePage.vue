@@ -9,7 +9,7 @@
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
-          Select
+          New Project
         </button>
       </div>
     </div>

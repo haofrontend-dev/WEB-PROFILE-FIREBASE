@@ -24,11 +24,11 @@
             v-for="(image, index) in Images"
             :key="index"
             class="col-6 col-lg-4 mb-2"
-            @click="showPopupImage(image.myUrl)"
+            @click="showPopupImage(image.imagesGallery)"
           >
             <div class="card" style="width: 100%">
               <img
-                :src="image.myUrl"
+                :src="image.urlActack"
                 class="card-img-top"
                 :alt="image.alt"
                 ref="imageCard"
@@ -41,10 +41,19 @@
           </div>
         </div>
       </div>
-
       <div v-if="isPopup" class="popup-image">
         <span @click="isPopup = false">&times;</span>
-        <img :src="imagePopup" alt="" ref="imagePopup" />
+        <div v-if="imagesPopup.length > 0" class="row popup-image-container">
+          <div
+            v-for="(item, index) in imagesPopup"
+            :key="index"
+            class="col-6 mb-4"
+          >
+            <div>
+              <img :src="item.src" alt="" ref="imagePopup" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -61,7 +70,7 @@ export default {
   data() {
     return {
       isPopup: false,
-      imagePopup: "",
+      imagesPopup: [],
       listCardImages: [],
       options: {
         year: "numeric",
@@ -74,9 +83,9 @@ export default {
     this.getDataImages();
   },
   methods: {
-    showPopupImage(src) {
+    showPopupImage(imageArr) {
       this.isPopup = true;
-      this.imagePopup = src;
+      this.imagesPopup = imageArr;
     },
     async getDataImages() {
       const db = getFirestore();
@@ -119,40 +128,5 @@ p {
   transform: translateY(-4px);
   cursor: pointer;
   box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
-}
-
-.popup-image {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  height: 100vh;
-  overflow-y: auto;
-  width: 100%;
-  z-index: 100;
-}
-.popup-image span {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  font-size: 40px;
-  font-weight: bolder;
-  color: #fff;
-  cursor: pointer;
-  z-index: 100;
-}
-.popup-image img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 5px;
-  width: 750px;
-  object-fit: cover;
-}
-@media screen and (max-width: 768px) {
-  .popup-image img {
-    width: 95%;
-  }
 }
 </style>

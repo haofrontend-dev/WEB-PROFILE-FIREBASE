@@ -3,32 +3,24 @@
     <div class="wrap-image--loader">
       <div class="placehoder p-4 text-center">No file Selected</div>
       <div class="mt-2">
-        <button
+        <router-link
+          to="/admin/project/new"
           type="button"
-          class="btn btn-outline-primary btn-lg"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          class="btn btn-outline-primary"
         >
-          Select
-        </button>
+          New Project
+        </router-link>
       </div>
     </div>
-    <table-images :columns="columns" models="db_projects" />
-    <model-image
-      :images="images"
-      models="db_projects"
-      :select-options="selectOptions"
-    />
+    <table-images :columns="columns" models="db_projects" :edit-item="true" />
   </div>
 </template>
 
 <script>
 import { getFirestore, collection, getDocs } from "firebase/firestore";
-import ModelImage from "@/components/ModelImage.vue";
 import TableImages from "@/components/TableImages.vue";
 export default {
   components: {
-    ModelImage,
     TableImages,
   },
   data() {
@@ -65,7 +57,6 @@ export default {
       const db = getFirestore();
       const myCollection = collection(db, "images");
       const querySnapshot = await getDocs(myCollection);
-
       querySnapshot.forEach((doc) => {
         this.images.push({ src: doc.data().myUrl });
       });
@@ -78,7 +69,6 @@ export default {
   display: flex;
   margin: 25px;
 }
-
 img {
   max-width: 250px;
   margin: 15px;

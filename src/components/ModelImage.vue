@@ -122,6 +122,7 @@
                       </option>
                     </select>
                   </div>
+
                   <button
                     class="btn btn-primary"
                     @click="uploadImageProject(srcActtacImage)"
@@ -152,7 +153,11 @@ export default {
     },
     selectOptions: {
       type: Array,
-      require: true,
+      default: () => [],
+    },
+    imagesGallery: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -162,6 +167,7 @@ export default {
       altImage: "",
       valueSelect: "general",
       selectItem: null,
+      imgGaller: true,
     };
   },
   computed: {
@@ -174,7 +180,6 @@ export default {
   methods: {
     toggleActiveClass(index) {
       this.selectItem = index;
-      console.log(this.selectItem);
     },
     uploadImageProject(urlImg) {
       try {
@@ -253,5 +258,9 @@ export default {
   width: 100%;
   height: 100%;
   margin: 0;
+}
+.card-link {
+  text-decoration: underline;
+  font-size: 12px;
 }
 </style>

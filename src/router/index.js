@@ -157,6 +157,36 @@ const routes = [
     beforeEnter: requireAuth,
   },
   {
+    path: "/admin/project/new",
+    name: "admin-new-project",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    meta: {
+      layout: "admin",
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/admin/project/AddProject.vue"
+      ),
+    beforeEnter: requireAuth,
+  },
+  {
+    path: "/admin/project/edit/:id",
+    name: "admin-new-project",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    meta: {
+      layout: "admin",
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/admin/project/EditProject.vue"
+      ),
+    beforeEnter: requireAuth,
+  },
+  {
     path: "/admin/home",
     name: "admin-home",
     // route level code-splitting

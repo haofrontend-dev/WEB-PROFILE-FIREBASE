@@ -108,6 +108,41 @@ h2 {
 .breadcrumb-item + .breadcrumb-item::before {
   color: #5aa6f1;
 }
+
+.popup-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 100vh;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 100;
+}
+.popup-image span {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100;
+}
+.popup-image .popup-image-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  width: 750px;
+  object-fit: cover;
+  background: #fff;
+}
+.popup-image .popup-image-container img {
+  width: 100%;
+}
+
 @media screen and (min-width: 1920px) {
   .container {
     max-width: 1240px !important;
@@ -144,6 +179,9 @@ h2 {
 @media screen and (max-width: 768px) {
   .card-img-top {
     height: 220px;
+  }
+  .popup-image .popup-image-container {
+    width: 80%;
   }
 }
 @media screen and (max-width: 480px) {

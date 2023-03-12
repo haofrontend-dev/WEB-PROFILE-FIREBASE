@@ -13,7 +13,7 @@
           <td scope="row">{{ index + 1 }}</td>
           <td>
             <img
-              :src="data.myUrl"
+              :src="data.myUrl || data.urlActack"
               alt=""
               style="width: 80px; max-height: 64px; object-fit: contain"
             />
@@ -37,6 +37,13 @@
             <div class="form-check form-switch">
               <span class="btn-delete" @click="showModal(data.id)"
                 ><i class="fa-regular fa-trash-can"></i
+              ></span>
+            </div>
+          </td>
+          <td v-if="editItem">
+            <div class="form-check form-switch">
+              <span class="btn-delete text-primary" @click="openEdit(data.id)"
+                ><i class="fa-solid fa-pen"></i
               ></span>
             </div>
           </td>
@@ -83,6 +90,10 @@ export default {
       type: String,
       require: true,
     },
+    editItem: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -97,6 +108,13 @@ export default {
     this.getDatas();
   },
   methods: {
+    openEdit(id) {
+      this.$router.push({ path: `/admin/project/edit/${id}` });
+    },
+    showModal(docId) {
+      this.modalShow = true;
+      this.idItemImage = docId;
+    },
     async getDatas() {
       const db = getFirestore();
 
@@ -152,10 +170,6 @@ export default {
           });
           console.error("Lỗi khi xóa tài liệu: ", error);
         });
-    },
-    showModal(docId) {
-      this.modalShow = true;
-      this.idItemImage = docId;
     },
   },
 };
