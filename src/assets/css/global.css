@@ -139,7 +139,7 @@ h2 {
 }
 .popup-image .popup-image-container img {
   width: 100%;
-  min-height: 285px;
+  min-height: 110px;
   object-fit: cover;
 }
 
