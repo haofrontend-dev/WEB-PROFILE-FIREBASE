@@ -32,7 +32,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Project/General.vue"),
+      import(/* webpackChunkName: "General" */ "../views/Project/General.vue"),
   },
   {
     path: "/projects/beauty",
@@ -41,7 +41,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Project/Beauty.vue"),
+      import(/* webpackChunkName: "Beauty" */ "../views/Project/Beauty.vue"),
   },
   {
     path: "/projects/f&b",
@@ -50,7 +50,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Project/F&B.vue"),
+      import(/* webpackChunkName: "F&B" */ "../views/Project/F&B.vue"),
   },
   {
     path: "/projects/key-visual",
@@ -59,7 +59,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Project/KeyVisual.vue"),
+      import(
+        /* webpackChunkName: "KeyVisual" */ "../views/Project/KeyVisual.vue"
+      ),
   },
   {
     path: "/projects/branding",
@@ -68,7 +70,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Project/Branding.vue"),
+      import(
+        /* webpackChunkName: "Branding" */ "../views/Project/Branding.vue"
+      ),
   },
   {
     path: "/projects/motion-ai",
@@ -77,7 +81,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Project/MotionAi.vue"),
+      import(
+        /* webpackChunkName: "MotionAi" */ "../views/Project/MotionAi.vue"
+      ),
   },
   {
     path: "/contact",
@@ -86,7 +92,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/ContactView.vue"),
+      import(/* webpackChunkName: "ContactView" */ "../views/ContactView.vue"),
   },
 
   {
@@ -99,7 +105,7 @@ const routes = [
       layout: "auth",
     },
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/LoginView.vue"),
+      import(/* webpackChunkName: "LoginView" */ "../views/LoginView.vue"),
   },
   {
     path: "/register",
@@ -111,7 +117,9 @@ const routes = [
       layout: "auth",
     },
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/RegisterView.vue"),
+      import(
+        /* webpackChunkName: "RegisterView" */ "../views/RegisterView.vue"
+      ),
     beforeEnter: requireAuth,
   },
   {
@@ -124,7 +132,7 @@ const routes = [
       layout: "admin",
     },
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/UploadView.vue"),
+      import(/* webpackChunkName: "UploadView" */ "../views/UploadView.vue"),
     beforeEnter: requireAuth,
     children: [],
   },
@@ -138,7 +146,7 @@ const routes = [
       layout: "admin",
     },
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/UploadView.vue"),
+      import(/* webpackChunkName: "UploadView" */ "../views/UploadView.vue"),
     beforeEnter: requireAuth,
   },
   {
@@ -152,7 +160,7 @@ const routes = [
     },
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "../views/admin/project/ProjectUpload.vue"
+        /* webpackChunkName: "ProjectUpload" */ "../views/admin/project/ProjectUpload.vue"
       ),
     beforeEnter: requireAuth,
   },
@@ -167,7 +175,7 @@ const routes = [
     },
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "../views/admin/project/AddProject.vue"
+        /* webpackChunkName: "AddProject" */ "../views/admin/project/AddProject.vue"
       ),
     beforeEnter: requireAuth,
   },
@@ -182,7 +190,7 @@ const routes = [
     },
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "../views/admin/project/EditProject.vue"
+        /* webpackChunkName: "EditProject" */ "../views/admin/project/EditProject.vue"
       ),
     beforeEnter: requireAuth,
   },
@@ -197,7 +205,7 @@ const routes = [
     },
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "../views/admin/home/UploadHomePage.vue"
+        /* webpackChunkName: "UploadHomePage" */ "../views/admin/home/UploadHomePage.vue"
       ),
     beforeEnter: requireAuth,
   },

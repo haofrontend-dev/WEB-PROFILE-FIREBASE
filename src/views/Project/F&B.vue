@@ -48,7 +48,7 @@
           <div
             v-for="(item, index) in imagesPopup"
             :key="index"
-            class="col-6 mb-4"
+            class="col-12 mb-4"
           >
             <div>
               <img :src="item.src" alt="" ref="imagePopup" />
