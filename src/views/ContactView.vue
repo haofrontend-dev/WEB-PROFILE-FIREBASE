@@ -34,7 +34,7 @@
                 v-model="message"
                 id="textarea-rows"
                 class="input-text"
-                placeholder="Tall textarea"
+                placeholder="Message..."
                 rows="8"
               ></b-form-textarea>
             </div>

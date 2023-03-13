@@ -28,7 +28,7 @@
             class="col-6 col-lg-4 mb-2"
             @click="showPopupImage(image.imagesGallery)"
           >
-            <div class="card" style="width: 100%">
+            <div class="card" style="width: 100%; border-radius: 15px">
               <img
                 :src="image.urlActack"
                 class="card-img-top"

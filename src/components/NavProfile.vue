@@ -29,7 +29,7 @@
         </li>
         <li class="nav-item">
           <router-link to="/projects/motion-ai" class="nav-item__link"
-            >Motion & Illustration</router-link
+            >Motion</router-link
           >
         </li>
       </ul>

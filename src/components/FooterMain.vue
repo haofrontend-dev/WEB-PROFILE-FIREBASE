@@ -9,7 +9,7 @@
           <p class="text-white d-none d-lg-block">All rights reserved 2023</p>
         </div>
         <div class="col-5 col-lg-3 mb-3 service">
-          <div>
+          <div class="ps-4">
             <span class="text-white fw-bold h5">Services</span>
             <ul>
               <li>Graphic Design</li>
