@@ -39,18 +39,16 @@
                 class="h-100 d-flex flex-column align-items-center justify-content-center"
               >
                 <h2 class="text-header text-center text-justify">About me</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                  aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                  nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-                  aliquip ex ea commodo consequat. Duis
+                <p class="about-text">
+                  Creative and deatil-oriented graphic designer with many
+                  experience in marketing agencies, managing graphic design
+                  projects from inception to execution.
                 </p>
                 <div class="row w-100">
                   <div class="col-6 col-lg-3 mb-3 px-2">
                     <div class="about-card">
                       <div class="about-card--title d-flex align-items-center">
-                        <span>3</span>
+                        <span>4</span>
                       </div>
                       <p>years of experience</p>
                     </div>
@@ -88,50 +86,52 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="pt-5">
-      <div class="container">
-        <div class="section-skill">
-          <div class="mt-5 section-gp">
-            <h2 class="text-white fw-bold text-center mt-3">Graphic designs</h2>
-            <div class="mt-5">
-              <div class="row">
-                <div
-                  v-for="(image, index) in imagesGpDesign"
-                  :key="index"
-                  class="col-6 col-lg-4 mb-4"
-                >
-                  <div>
-                    <img :src="image.myUrl" :alt="image.alt" width="100%" />
+      <div class="pt-5">
+        <div class="container">
+          <div class="section-skill">
+            <div class="mt-5 section-gp">
+              <h2 class="text-white fw-bold text-center mt-3">
+                Graphic designs
+              </h2>
+              <div class="mt-5">
+                <div class="row">
+                  <div
+                    v-for="(image, index) in imagesGpDesign"
+                    :key="index"
+                    class="col-6 col-lg-4 mb-4"
+                  >
+                    <div>
+                      <img :src="image.myUrl" :alt="image.alt" width="100%" />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="mt-5 section-ai">
+              <h2 class="text-white fw-bold text-center mt-3">Illustrations</h2>
+              <div class="mt-5">
+                <slick-slider
+                  v-if="imagesAi.length > 0"
+                  :options="optionsGP"
+                  class=""
+                >
+                  <div v-for="(image, index) in imagesAi" :key="index">
+                    <img :src="image.myUrl" :alt="image.atl" class="w-100" />
+                  </div>
+                </slick-slider>
+              </div>
+            </div>
           </div>
-          <div class="mt-5 section-ai">
-            <h2 class="text-white fw-bold text-center mt-3">Illustrations</h2>
-            <div class="mt-5">
-              <slick-slider
-                v-if="imagesAi.length > 0"
-                :options="optionsGP"
-                class=""
-              >
-                <div v-for="(image, index) in imagesAi" :key="index">
-                  <img :src="image.myUrl" :alt="image.atl" class="w-100" />
+          <div class="send-mail">
+            <div class="row">
+              <div class="col-lg-4 mb-3 mb-lg-0 d-flex align-center">
+                <span class="text-white">For work please send email to</span>
+              </div>
+              <div class="col-lg-8">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="text" placeholder="linhchi.nt.158@gmail.com" />
+                  <button class="btn-send">Send</button>
                 </div>
-              </slick-slider>
-            </div>
-          </div>
-        </div>
-        <div class="send-mail">
-          <div class="row">
-            <div class="col-lg-4 mb-3 mb-lg-0">
-              <span class="text-white">For work please send email to</span>
-            </div>
-            <div class="col-lg-8">
-              <div class="d-flex align-items-center gap-3">
-                <input type="text" placeholder="linhchi.nt.158@gmail.com" />
-                <button class="btn-send">Send</button>
               </div>
             </div>
           </div>
@@ -269,6 +269,10 @@ export default {
   transition: all 0.5s;
 }
 
+.about-me .about-text {
+  text-align: justify;
+  word-spacing: -2px;
+}
 .about-me .text-header {
   color: #6b9cff;
 }
@@ -294,13 +298,14 @@ export default {
   margin-right: 8px;
 }
 .about-card span {
-  font-size: 40px;
+  font-size: 35px;
   line-height: 1;
 }
 .about-card p {
   text-align: center;
   margin-bottom: 0;
   margin-top: 8px;
+  font-size: 14px;
 }
 .cl {
   height: 200px;
@@ -320,6 +325,7 @@ export default {
 }
 .send-mail span {
   font-size: 18px;
+  line-height: 40px;
 }
 .send-mail input {
   width: 100%;
