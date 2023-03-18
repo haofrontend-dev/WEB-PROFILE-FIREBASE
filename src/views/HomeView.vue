@@ -40,7 +40,7 @@
               >
                 <h2 class="text-header text-center text-justify">About me</h2>
                 <p class="about-text">
-                  Creative and deatil-oriented graphic designer with many
+                  Creative and detail-oriented graphic designer with many
                   experience in marketing agencies, managing graphic design
                   projects from inception to execution.
                 </p>
@@ -48,7 +48,7 @@
                   <div class="col-6 col-lg-3 mb-3 px-2">
                     <div class="about-card">
                       <div class="about-card--title d-flex align-items-center">
-                        <span>4</span>
+                        <h2>4</h2>
                       </div>
                       <p>years of experience</p>
                     </div>
@@ -57,7 +57,7 @@
                     <div class="about-card">
                       <div class="about-card--title d-flex align-items-center">
                         <i class="fa-solid fa-chevron-right"></i>
-                        <span> 40</span>
+                        <h2>40</h2>
                       </div>
                       <p>brands</p>
                     </div>
@@ -66,7 +66,7 @@
                     <div class="about-card">
                       <div class="about-card--title d-flex align-items-center">
                         <i class="fa-solid fa-chevron-right"></i>
-                        <span>300</span>
+                        <h2>300</h2>
                       </div>
                       <p>projects</p>
                     </div>
@@ -75,7 +75,7 @@
                     <div class="about-card">
                       <div class="about-card--title d-flex align-items-center">
                         <i class="fa-solid fa-chevron-right"></i>
-                        <span>10</span>
+                        <h2>10</h2>
                       </div>
                       <p>industries & sectors</p>
                     </div>
@@ -116,7 +116,13 @@
                   class=""
                 >
                   <div v-for="(image, index) in imagesAi" :key="index">
-                    <img :src="image.myUrl" :alt="image.atl" class="w-100" />
+                    <a
+                      href="https://www.instagram.com/thebeige.studio/"
+                      target="_blank"
+                      class="d-block"
+                    >
+                      <img :src="image.myUrl" :alt="image.atl" class="w-100"
+                    /></a>
                   </div>
                 </slick-slider>
               </div>
@@ -297,14 +303,14 @@ export default {
   margin-top: 8px;
   margin-right: 8px;
 }
-.about-card span {
+.about-card h2 {
   font-size: 35px;
   line-height: 1;
+  margin-bottom: 0;
 }
 .about-card p {
   text-align: center;
   margin-bottom: 0;
-  margin-top: 8px;
   font-size: 14px;
 }
 .cl {
@@ -462,7 +468,7 @@ img {
     margin-top: 8px;
     margin-right: 4px;
   }
-  .about-card span {
+  .about-card h2 {
     font-size: 30px;
     line-height: 1;
   }

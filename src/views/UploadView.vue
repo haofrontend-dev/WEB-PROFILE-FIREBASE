@@ -9,7 +9,7 @@
 
     <div v-if="images.length > 0" class="row mt-4 box-image">
       <div
-        v-for="(image, index) in images"
+        v-for="(image, index) in dataImages"
         :key="index"
         class="col-6 col-lg-2 mb-4 item-image"
       >
@@ -81,6 +81,12 @@ export default {
       files: [],
       show: true,
     };
+  },
+  computed: {
+    dataImages() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.images.reverse();
+    },
   },
   mounted() {
     this.getData();
