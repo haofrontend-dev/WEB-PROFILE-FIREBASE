@@ -95,14 +95,59 @@
               </h2>
               <div class="mt-5">
                 <div class="row">
-                  <div
-                    v-for="(image, index) in imagesGpDesign"
-                    :key="index"
-                    class="col-6 col-lg-4 mb-4"
-                  >
-                    <div>
-                      <img :src="image.myUrl" :alt="image.alt" width="100%" />
-                    </div>
+                  <div class="col-6 col-lg-4 mb-4">
+                    <router-link to="/projects">
+                      <img
+                        src="@/assets/image/gp-1.png"
+                        alt="Graphic 1"
+                        width="100%"
+                      />
+                    </router-link>
+                  </div>
+                  <div class="col-6 col-lg-4 mb-4">
+                    <router-link to="/projects/f&b">
+                      <img
+                        src="@/assets/image/gp-2.png"
+                        alt="Graphic 1"
+                        width="100%"
+                      />
+                    </router-link>
+                  </div>
+                  <div class="col-6 col-lg-4 mb-4">
+                    <router-link to="/projects/beauty">
+                      <img
+                        src="@/assets/image/gp-3.png"
+                        alt="Graphic 1"
+                        width="100%"
+                      />
+                    </router-link>
+                  </div>
+                  <div class="col-6 col-lg-4 mb-4">
+                    <router-link to="/projects">
+                      <img
+                        src="@/assets/image/gp-4.png"
+                        alt="Graphic 1"
+                        width="100%"
+                      />
+                    </router-link>
+                  </div>
+                  <div class="col-6 col-lg-4 mb-4">
+                    <router-link to="/projects/key-visua">
+                      <img
+                        src="@/assets/image/gp-5.png"
+                        alt="Graphic 1"
+                        width="100%"
+                      />
+                    </router-link>
+                  </div>
+                  <div class="col-6 col-lg-4 mb-4">
+                    <router-link to="/projects/f&b">
+                      <img
+                        src="@/assets/image/gp-6.png"
+                        alt="Graphic 1"
+                        width="100%"
+                      />
+                    </router-link>
                   </div>
                 </div>
               </div>

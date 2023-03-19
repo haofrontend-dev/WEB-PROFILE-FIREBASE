@@ -131,7 +131,7 @@ export default {
           name: nameImage,
         };
         setDoc(myDocument, myData);
-        this.getData();
+        this.images.push({ src: downloadURL, name: nameImage });
         this.$refs.imgDropzone.removeFile(file);
       } catch (error) {
         console.log(error);
