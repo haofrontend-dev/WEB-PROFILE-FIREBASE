@@ -156,14 +156,14 @@
 
     <model-list-image
       id="modalImagesGallery"
-      :images="images"
+      :images="dataImages"
       @get-url-img="getUrrImage"
       @save-images="setImagesGallery"
       :images-gallery="imagesGallery"
     />
     <model-list-image
       id="modalImage"
-      :images="images"
+      :images="dataImages"
       @get-url-img="getUrrImage"
     />
   </div>
@@ -218,6 +218,10 @@ export default {
       return this.selectItem || this.selectItem === 0
         ? this.images[this.selectItem].src
         : "";
+    },
+    dataImages() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.images.reverse();
     },
   },
   mounted() {

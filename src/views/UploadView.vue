@@ -18,7 +18,7 @@
           alt=""
           style="width: 100%; height: 185px; object-fit: cover"
         />
-        <span class="btn-delete" @click="showModal(image.id)"
+        <span class="btn-delete" @click="showModal(image.id, image.name)"
           ><i class="fa-regular fa-trash-can"></i
         ></span>
       </div>
@@ -35,7 +35,7 @@
           class="ms-3"
           variant="outline-warning"
           block
-          @click="deleteImage(idItemImage)"
+          @click="deleteImage(idItemImage, nameItemImage)"
           >Delete</b-button
         >
       </div>
@@ -44,7 +44,14 @@
 </template>
 
 <script>
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  getMetadata,
+  deleteObject,
+} from "firebase/storage";
 import {
   getFirestore,
   collection,
@@ -68,13 +75,14 @@ export default {
       description: "",
       images: [],
       idItemImage: "",
+      nameItemImage: "",
       valueOption: null,
       modalShow: false,
       dropzoneOptions: {
         url: "https://httpbin.org/post",
         thumbnailWidth: 250,
         thumbnailHeight: 250,
-        maxFilesize: 2,
+        maxFilesize: 1,
         addRemoveLinks: false,
         acceptedFiles: ".jpg, jpeg, .png, .mp4",
       },
@@ -99,22 +107,31 @@ export default {
           contentType: "image/png, video/mp4",
         };
         const storageRef = getStorage();
-
+        const id = Date.now().toString();
         const db = getFirestore();
         const myCollection = collection(db, "images");
-        const myDocument = doc(myCollection);
+        const myDocument = doc(myCollection, id);
         const imageRef = await ref(storageRef, `images/${imageName}.png`);
         let downloadURL = "";
+        let nameImage = "";
         await uploadBytes(imageRef, file, metaData);
 
         await getDownloadURL(imageRef).then(function (url) {
           downloadURL = url;
         });
+        await getMetadata(imageRef)
+          .then((metadata) => {
+            nameImage = metadata.name;
+          })
+          .catch((error) => {
+            console.error("Error getting metadata:", error);
+          });
         const myData = {
           myUrl: downloadURL,
+          name: nameImage,
         };
         setDoc(myDocument, myData);
-        this.images.push({ src: downloadURL });
+        this.getData();
         this.$refs.imgDropzone.removeFile(file);
       } catch (error) {
         console.log(error);
@@ -133,23 +150,34 @@ export default {
         reader.readAsDataURL(file);
       }
     },
-    removeImage(index) {
-      this.images.splice(index, 1);
-    },
     async getData() {
       const db = getFirestore();
       const myCollection = collection(db, "images");
       const querySnapshot = await getDocs(myCollection);
       querySnapshot.forEach((doc) => {
-        this.images.push({ src: doc.data().myUrl, id: doc.id });
+        this.images.push({
+          src: doc.data().myUrl,
+          name: doc.data().name,
+          id: doc.id,
+        });
       });
     },
     // Delete all the images
-    async deleteImage(docId) {
+    async deleteImage(docId, name) {
       const db = getFirestore();
-      console.log(docId);
-
+      const storage = getStorage();
+      const fileRef = ref(storage, `images/${name}`);
       const docRef = doc(db, "images", docId);
+      if (name) {
+        await deleteObject(fileRef).catch((error) => {
+          this.$toast.open({
+            message: "Error deleting image.",
+            type: "error",
+            // all of other options may go here
+          });
+          console.error("Error deleting file:", error);
+        });
+      }
       await deleteDoc(docRef)
         .then(() => {
           this.modalShow = false;
@@ -160,7 +188,9 @@ export default {
             // all of other options may go here
           });
           // Xóa tài liệu khỏi danh sách
-          this.images = this.images.filter((image) => image.id !== docId);
+          this.images = this.images
+            .filter((image) => image.id !== docId)
+            .reverse();
         })
         .catch((error) => {
           this.$toast.open({
@@ -171,9 +201,10 @@ export default {
           console.error("Lỗi khi xóa tài liệu: ", error);
         });
     },
-    showModal(docId) {
+    showModal(docId, name) {
       this.modalShow = true;
       this.idItemImage = docId;
+      this.nameItemImage = name;
     },
   },
 };

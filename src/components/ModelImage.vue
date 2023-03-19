@@ -176,6 +176,7 @@ export default {
         ? this.images[this.selectItem].src
         : "";
     },
+    // eslint-disable-next-line vue/return-in-computed-property
   },
   methods: {
     toggleActiveClass(index) {

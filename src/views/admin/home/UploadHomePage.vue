@@ -15,7 +15,7 @@
     </div>
     <table-images :columns="columns" models="db_homepage" />
     <model-image
-      :images="images"
+      :images="dataImages"
       models="db_homepage"
       :select-options="selectOptions"
     />
@@ -50,6 +50,12 @@ export default {
         { title: "Illustrations", value: "Illustrations" },
       ],
     };
+  },
+  computed: {
+    dataImages() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.images.reverse();
+    },
   },
   mounted() {
     this.getImages();
