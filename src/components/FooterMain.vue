@@ -28,9 +28,28 @@
               </ul>
             </div>
             <div>
-              <img src="@/assets/image/SVG/svg-fb.svg" alt="" />
-              <img src="@/assets/image/SVG/svg-linked.svg" alt="" />
-              <img src="@/assets/image/SVG/svg-in.svg" alt="" />
+              <a
+                href="https://www.facebook.com/ngdanglinhchi/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="@/assets/image/SVG/svg-fb.svg" alt=""
+              /></a>
+
+              <a
+                href="https://www.linkedin.com/in/linh-chi-nguyen-a373bb1a6/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img src="@/assets/image/SVG/svg-linked.svg" alt=""
+              /></a>
+
+              <a
+                href="https://www.instagram.com/thebeige.studio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="@/assets/image/SVG/svg-in.svg" alt=""
+              /></a>
             </div>
           </div>
         </div>
@@ -38,8 +57,22 @@
           <div>
             <span class="text-white fw-bold h5">Follow me</span>
             <ul>
-              <li>Facebook</li>
-              <li>Instagram</li>
+              <li>
+                <a
+                  href="https://www.facebook.com/ngdanglinhchi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Facebook</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/thebeige.studio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Instagram</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -74,6 +107,12 @@ export default {};
   list-style: none;
   margin-top: 16px;
   color: #fff;
+}
+.service ul li a {
+  color: #fff;
+}
+.service ul li a:hover {
+  color: #6b9cff;
 }
 .service ul li {
   padding: 4px 0;
