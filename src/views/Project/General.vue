@@ -108,11 +108,9 @@ export default {
   },
   computed: {
     Images() {
-      return this.listCardImages
-        .filter(
-          (image) => image.typePr === "general" && image.isActive === true
-        )
-        .reverse();
+      return this.listCardImages.filter(
+        (image) => image.typePr === "general" && image.isActive === true
+      );
     },
   },
 };

@@ -252,8 +252,9 @@ export default {
     uploadImageProject() {
       try {
         const db = getFirestore();
+        const id = Date.now().toString();
         const myCollection = collection(db, "db_projects");
-        const myDocument = doc(myCollection);
+        const myDocument = doc(myCollection, id);
         const myData = {
           urlActack: this.urlImage,
           atl: this.altImage,

@@ -108,9 +108,9 @@ export default {
   },
   computed: {
     Images() {
-      return this.listCardImages
-        .filter((image) => image.typePr === "f&b" && image.isActive === true)
-        .reverse();
+      return this.listCardImages.filter(
+        (image) => image.typePr === "f&b" && image.isActive === true
+      );
     },
   },
 };
