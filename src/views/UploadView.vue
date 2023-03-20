@@ -35,7 +35,7 @@
           class="ms-3"
           variant="outline-warning"
           block
-          @click="deleteImage(idItemImage, nameItemImage)"
+          @click="deleteImage(idItemImage)"
           >Delete</b-button
         >
       </div>
@@ -44,14 +44,7 @@
 </template>
 
 <script>
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  getMetadata,
-  deleteObject,
-} from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {
   getFirestore,
   collection,
@@ -113,25 +106,17 @@ export default {
         const myDocument = doc(myCollection, id);
         const imageRef = await ref(storageRef, `images/${imageName}.png`);
         let downloadURL = "";
-        let nameImage = "";
         await uploadBytes(imageRef, file, metaData);
 
         await getDownloadURL(imageRef).then(function (url) {
           downloadURL = url;
         });
-        await getMetadata(imageRef)
-          .then((metadata) => {
-            nameImage = metadata.name;
-          })
-          .catch((error) => {
-            console.error("Error getting metadata:", error);
-          });
+
         const myData = {
           myUrl: downloadURL,
-          name: nameImage,
         };
         setDoc(myDocument, myData);
-        this.images.push({ src: downloadURL, name: nameImage });
+        this.images.push({ src: downloadURL });
         this.$refs.imgDropzone.removeFile(file);
       } catch (error) {
         console.log(error);
@@ -163,21 +148,10 @@ export default {
       });
     },
     // Delete all the images
-    async deleteImage(docId, name) {
+    async deleteImage(docId) {
       const db = getFirestore();
-      const storage = getStorage();
-      const fileRef = ref(storage, `images/${name}`);
       const docRef = doc(db, "images", docId);
-      if (name) {
-        await deleteObject(fileRef).catch((error) => {
-          this.$toast.open({
-            message: "Error deleting image.",
-            type: "error",
-            // all of other options may go here
-          });
-          console.error("Error deleting file:", error);
-        });
-      }
+
       await deleteDoc(docRef)
         .then(() => {
           this.modalShow = false;
