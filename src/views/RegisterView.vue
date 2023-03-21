@@ -147,7 +147,6 @@ export default {
         console.log(err);
       } finally {
         this.isPending = false;
-        this.errorMessge = null;
       }
     },
   },
