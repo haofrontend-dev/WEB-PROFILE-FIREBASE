@@ -107,9 +107,11 @@ export default {
   },
   computed: {
     Images() {
-      return this.listCardImages.filter(
-        (image) => image.typePr === "branding" && image.isActive === true
-      );
+      return this.listCardImages
+        .filter(
+          (image) => image.typePr === "branding" && image.isActive === true
+        )
+        .reverse();
     },
   },
 };
