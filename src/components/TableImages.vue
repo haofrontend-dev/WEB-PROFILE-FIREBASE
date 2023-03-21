@@ -9,7 +9,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(data, index) in allData" :key="index">
+        <tr v-for="(data, index) in dateImages" :key="index">
           <td scope="row">{{ index + 1 }}</td>
           <td>
             <img
@@ -103,6 +103,12 @@ export default {
       isShowImage: false,
       idItemImage: "",
     };
+  },
+  computed: {
+    dateImages() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.allData.reverse();
+    },
   },
   mounted() {
     this.getDatas();
