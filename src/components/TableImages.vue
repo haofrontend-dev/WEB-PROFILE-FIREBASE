@@ -166,7 +166,9 @@ export default {
             // all of other options may go here
           });
           // Xóa tài liệu khỏi danh sách
-          this.allData = this.allData.filter((data) => data.id !== docId);
+          this.allData = this.allData
+            .filter((data) => data.id !== docId)
+            .reverse();
         })
         .catch((error) => {
           this.$toast.open({

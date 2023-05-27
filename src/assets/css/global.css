@@ -101,7 +101,20 @@ h2 {
   object-fit: cover;
   border-radius: 15px;
 }
-
+.card-img-top.card-img-top__hover {
+  display: none;
+  animation: faceOut .3s ease-in;
+  transition: all .3s;
+}
+.card:hover .card-img-top.card-image-top_main {
+  display: none;
+  transition: all 3s ease;
+}
+.card:hover .card-img-top.card-img-top__hover {
+  display: block;
+  opacity: 1;
+  transition: all 3s ease;
+}
 .text-justify {
   text-align: justify;
 }
@@ -188,3 +201,14 @@ h2 {
     height: 130px;
   }
 }
+
+/* @keyframes faceOut {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+} */

@@ -28,8 +28,19 @@
           >
             <div class="card" style="width: 100%; border-radius: 15px">
               <img
+                v-if="image.urlActack[0] || image.urlActack"
                 :src="image.urlActack"
                 class="card-img-top"
+                :class="{
+                  'card-image-top_main': image.urlActack.length === 2,
+                }"
+                :alt="image.alt"
+                ref="imageCard"
+              />
+              <img
+                v-if="image.urlActack.length === 2 && image.urlActack[1]"
+                :src="image.urlActack[1]"
+                class="card-img-top card-img-top__hover"
                 :alt="image.alt"
                 ref="imageCard"
               />
@@ -95,6 +106,8 @@ export default {
       querySnapshot.forEach((doc) => {
         this.listCardImages.push(doc.data());
       });
+
+      console.log(this.listCardImages);
     },
     formaDate(date) {
       const newDate = new Date(date);

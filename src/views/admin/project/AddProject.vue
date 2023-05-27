@@ -92,6 +92,36 @@
               >
             </div>
           </div>
+          <div class="attach-info text-end">
+            <div v-if="urlImageHover" class="attach-image">
+              <img
+                :src="urlImageHover"
+                alt=""
+                style="
+                  width: 100%;
+                  height: 100%;
+                  max-height: 120px;
+                  object-fit: cover;
+                  margin: 0;
+                "
+              />
+            </div>
+            <div class="card-body text-start">
+              <a
+                v-if="!urlImageHover"
+                class="card-link text-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#modalImageHover"
+                >Set project Image Hover</a
+              >
+              <a
+                v-else
+                class="card-link text-danger"
+                @click="urlImageHover = ''"
+                >Remove project Image Hover</a
+              >
+            </div>
+          </div>
           <div class="card-footer">
             <i class="fa-solid fa-circle-info"></i>
             <span
@@ -166,6 +196,11 @@
       :images="dataImages"
       @get-url-img="getUrrImage"
     />
+    <model-list-image
+      id="modalImageHover"
+      :images="dataImages"
+      @get-url-img="getUrrImageHover"
+    />
   </div>
 </template>
 
@@ -193,6 +228,7 @@ export default {
       images: [],
       valueOption: null,
       urlImage: null,
+      urlImageHover: null,
       imagesGallery: false,
       urlImagesGallery: [],
       columns: [
@@ -231,6 +267,9 @@ export default {
     getUrrImage(e) {
       this.urlImage = e;
     },
+    getUrrImageHover(e) {
+      this.urlImageHover = e;
+    },
     setImagesGallery(urlImages) {
       this.urlImagesGallery = urlImages;
     },
@@ -256,7 +295,9 @@ export default {
         const myCollection = collection(db, "db_projects");
         const myDocument = doc(myCollection, id);
         const myData = {
-          urlActack: this.urlImage,
+          urlActack: this.urlImageHover
+            ? [this.urlImage, this.urlImageHover]
+            : this.urlImage,
           atl: this.altImage,
           typePr: this.valueSelect,
           namePr: this.nameProject,
@@ -273,8 +314,8 @@ export default {
         });
         this.altImage = "";
         this.nameProject = "";
-        this.valueSelect = "";
         this.urlImage = "";
+        this.urlImageHover = "";
         this.urlImagesGallery = [];
         this.dateProject = "";
       } catch (error) {
