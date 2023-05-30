@@ -92,6 +92,36 @@
               >
             </div>
           </div>
+          <div class="attach-info text-end">
+            <div v-if="urlImageHover" class="attach-image">
+              <img
+                :src="urlImageHover"
+                alt=""
+                style="
+                  width: 100%;
+                  height: 100%;
+                  max-height: 120px;
+                  object-fit: cover;
+                  margin: 0;
+                "
+              />
+            </div>
+            <div class="card-body text-start">
+              <a
+                v-if="!urlImageHover"
+                class="card-link text-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#modalImageHover"
+                >Set project Image Hover</a
+              >
+              <a
+                v-else
+                class="card-link text-danger"
+                @click="urlImageHover = ''"
+                >Remove project Image Hover</a
+              >
+            </div>
+          </div>
           <div class="card-footer">
             <i class="fa-solid fa-circle-info"></i>
             <span
@@ -166,6 +196,11 @@
       :images="images"
       @get-url-img="getUrrImage"
     />
+    <model-list-image
+      id="modalImageHover"
+      :images="images"
+      @get-url-img="getUrrImageHover"
+    />
   </div>
 </template>
 
@@ -195,6 +230,7 @@ export default {
       images: [],
       valueOption: null,
       urlImage: null,
+      urlImageHover: null,
       imagesGallery: false,
       urlImagesGallery: [],
       dataImage: null,
@@ -233,6 +269,9 @@ export default {
     getUrrImage(e) {
       this.urlImage = e;
     },
+    getUrrImageHover(e) {
+      this.urlImageHover = e;
+    },
     setImagesGallery(urlImages) {
       this.urlImagesGallery = urlImages;
     },
@@ -260,21 +299,24 @@ export default {
         this.nameProject = this.dataImage.namePr;
         this.altImage = this.dataImage.atl;
         this.valueSelect = this.dataImage.typePr;
-        this.urlImage = this.dataImage.urlActack;
-        this.urlImagesGallery = this.dataImage.imagesGallery;
+        this.urlImage =
+          this.dataImage.urlActack["0"] || this.dataImage.urlActack["0"];
+        this.urlImageHover =
+          this.dataImage.urlActack && this.dataImage.urlActack["1"]
+            ? this.dataImage.urlActack["1"]
+            : "";
         this.dateProject = this.dataImage.year;
       } else {
         console.log("No such document!");
       }
+      console.log(this.urlImageHover);
     },
     async saveImageProject() {
       try {
         const db = getFirestore();
         const docRef = doc(db, "db_projects", this.idProject);
-
         await updateDoc(docRef, {
-          urlActack: this.urlImage,
-          atl: this.altImage,
+          urlActack: [this.urlImage, this.urlImageHover],
           typePr: this.valueSelect,
           namePr: this.nameProject,
           year: this.dateProject,
