@@ -306,6 +306,7 @@ export default {
           ? this.dataImage.urlActack.urlImageHover
           : "";
         this.dateProject = this.dataImage.year;
+        this.urlImagesGallery = this.dataImage.imagesGallery;
       } else {
         console.log("No such document!");
       }
