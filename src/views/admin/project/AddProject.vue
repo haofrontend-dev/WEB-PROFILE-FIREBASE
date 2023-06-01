@@ -296,7 +296,10 @@ export default {
         const myDocument = doc(myCollection, id);
         const myData = {
           urlActack: this.urlImageHover
-            ? [this.urlImage, this.urlImageHover]
+            ? {
+                urlImage: this.urlImage,
+                urlImageHover: this.urlImageHover,
+              }
             : this.urlImage,
           atl: this.altImage,
           typePr: this.valueSelect,

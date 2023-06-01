@@ -13,7 +13,11 @@
           <td scope="row">{{ index + 1 }}</td>
           <td>
             <img
-              :src="data.myUrl || data.urlActack"
+              :src="
+                data.urlActack.urlImage
+                  ? data.urlActack.urlImage
+                  : data.urlActack
+              "
               alt=""
               style="width: 80px; max-height: 64px; object-fit: contain"
             />

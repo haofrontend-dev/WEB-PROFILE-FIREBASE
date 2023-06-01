@@ -132,7 +132,7 @@
                     </router-link>
                   </div>
                   <div class="col-6 col-lg-4 mb-4">
-                    <router-link to="/projects/key-visua">
+                    <router-link to="/projects/key-visual">
                       <img
                         src="@/assets/image/gp-5.png"
                         alt="Graphic 1"

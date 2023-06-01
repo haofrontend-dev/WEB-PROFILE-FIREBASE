@@ -299,12 +299,12 @@ export default {
         this.nameProject = this.dataImage.namePr;
         this.altImage = this.dataImage.atl;
         this.valueSelect = this.dataImage.typePr;
-        this.urlImage =
-          this.dataImage.urlActack["0"] || this.dataImage.urlActack["0"];
-        this.urlImageHover =
-          this.dataImage.urlActack && this.dataImage.urlActack["1"]
-            ? this.dataImage.urlActack["1"]
-            : "";
+        this.urlImage = this.dataImage.urlActack.urlImage
+          ? this.dataImage.urlActack.urlImage
+          : this.dataImage.urlActack;
+        this.urlImageHover = this.dataImage.urlActack.urlImageHover
+          ? this.dataImage.urlActack.urlImageHover
+          : "";
         this.dateProject = this.dataImage.year;
       } else {
         console.log("No such document!");
@@ -316,7 +316,10 @@ export default {
         const db = getFirestore();
         const docRef = doc(db, "db_projects", this.idProject);
         await updateDoc(docRef, {
-          urlActack: [this.urlImage, this.urlImageHover],
+          urlActack: {
+            urlImage: this.urlImage,
+            urlImageHover: this.urlImageHover,
+          },
           typePr: this.valueSelect,
           namePr: this.nameProject,
           year: this.dateProject,
