@@ -1,16 +1,21 @@
 <template>
   <div class="home">
-    <div style="background-color: #c43122" class="d-none d-lg-block">
+    <div style="background-color: #062648" class="d-none d-lg-block">
       <div
         v-for="(image, index) in imagesSlider"
         :key="index"
         class="banner container p-0"
       >
-        <img style="border-radius: 0px" :src="image.myUrl" alt="" />
+        <!-- <img style="border-radius: 0px" :src="image.myUrl" alt="" /> -->
+        <img
+          style="border-radius: 0px"
+          src="@/assets/image/slider.png"
+          alt="linhchi-home"
+        />
       </div>
     </div>
     <div
-      style="background-color: #c43122"
+      style="background-color: #062648"
       class="d-block d-lg-none mt-lg-4 banner-mobile"
     >
       <div class="banner container p-0">
