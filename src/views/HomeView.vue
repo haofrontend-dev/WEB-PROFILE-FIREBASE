@@ -53,7 +53,7 @@
                   <div class="col-6 col-lg-3 mb-3 px-2">
                     <div class="about-card">
                       <div class="about-card--title d-flex align-items-center">
-                        <h2>4</h2>
+                        <h2>5</h2>
                       </div>
                       <p>years of experience</p>
                     </div>
